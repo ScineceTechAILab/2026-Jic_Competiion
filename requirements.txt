@@ -14,3 +14,9 @@ pytest-cov
 flake8
 mypy
 pre-commit
+<<<<<<< Updated upstream
+=======
+
+# 深度学习
+numpy
+>>>>>>> Stashed changes
