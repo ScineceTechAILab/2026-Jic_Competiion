@@ -7,7 +7,7 @@ from smbus2 import SMBus
 # ==========================================
 
 # I2C 配置
-BUS_NUM = 5         
+BUS_NUM = 5          # 根据您的树莓派或主控的I2C总线号修改，常见的是1或5
 DEVICE_ADDR = 0x26   # 驱动板I2C设备地址
 
 # 寄存器地址 (根据文档)
@@ -36,10 +36,10 @@ def main():
     def read_battery_voltage():
         try:
             # 读取电池电量寄存器 (0x08)
-            # 根据文档：data = (buf[0] <<8|buf[1])/10
+            # 根据文档：data = (buf[0] << 8 | buf[1]) / 10
             data = bus.read_i2c_block_data(DEVICE_ADDR, REG_BATTERY_VOLTAGE, 2)
             if len(data) >= 2:
-                voltage = (data[0] << 8 | data[1]) / 10.0
+                voltage = ((data[0] << 8) | data[1]) / 10.0
                 print(f"[状态] 电池电压: {voltage:.2f} V")
                 return voltage
             else:
@@ -56,7 +56,7 @@ def main():
             # 根据文档：data = buf[0] <<8|buf
             data = bus.read_i2c_block_data(DEVICE_ADDR, REG_M4_ENCODER, 2)
             if len(data) >= 2:
-                encoder_value = (data[0] << 8 | data[1])
+                encoder_value = (data[0] << 8 | data[1] )
                 # 处理有符号数（如果最高位是1，则为负数）
                 if encoder_value & 0x8000:
                     encoder_value = encoder_value - 0x10000
