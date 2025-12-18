@@ -11,6 +11,10 @@ import numpy as np
 import time
 import threading
 from datetime import datetime
+import os
+
+
+os.environ["DISPLAY"] = ":1" # 设置DISPLAY环境变量以确保在无头VNC中显示
 
 class CameraViewer:
     def __init__(self, camera_index=0, window_name="Camera Stream"):
