@@ -1,0 +1,1618 @@
+[2026-01-19 18:28:30] [INFO] [test_differential.py:19] === 差速底盘测试程序 ===
+[2026-01-19 18:28:30] [INFO] [test_differential.py:26] 正在从 /app/jic_competiion/config/chasis_params.yaml 加载参数...
+[2026-01-19 18:28:30] [INFO] [test_differential.py:35] 参数: 轮径=65mm, 轮距=160mm
+[2026-01-19 18:28:30] [INFO] [test_differential.py:42] 电池电压: 12.00V
+[2026-01-19 18:28:30] [INFO] [test_differential.py:45] 配置电机参数...
+[2026-01-19 18:28:31] [INFO] [test_differential.py:52] 配置电机映射...
+[2026-01-19 18:28:31] [INFO] [test_differential.py:58] 映射: 左轮=M2(dir=1), 右轮=M1(dir=1)
+[2026-01-19 18:28:31] [INFO] [test_differential.py:62] [Phase 3] 运动学控制测试
+[2026-01-19 18:28:31] [INFO] [test_differential.py:63] 1. 前进 0.2 m/s
+[2026-01-19 18:28:34] [INFO] [test_differential.py:69] 2. 后退 0.2 m/s
+[2026-01-19 18:28:37] [INFO] [test_differential.py:75] 3. 原地左转 1.0 rad/s
+[2026-01-19 18:28:40] [INFO] [test_differential.py:81] 测试完成!
+[2026-01-19 18:31:35] [INFO] [test_differential.py:19] === 差速底盘测试程序 ===
+[2026-01-19 18:31:35] [INFO] [test_differential.py:26] 正在从 /app/jic_competiion/config/chasis_params.yaml 加载参数...
+[2026-01-19 18:31:35] [INFO] [test_differential.py:35] 参数: 轮径=65mm, 轮距=160mm
+[2026-01-19 18:31:35] [INFO] [test_differential.py:42] 电池电压: 11.90V
+[2026-01-19 18:31:35] [INFO] [test_differential.py:45] 配置电机参数...
+[2026-01-19 18:31:35] [INFO] [test_differential.py:52] 配置电机映射...
+[2026-01-19 18:31:35] [INFO] [test_differential.py:58] 映射: 左轮=M2(dir=1), 右轮=M1(dir=1)
+[2026-01-19 18:31:35] [INFO] [test_differential.py:62] [Phase 3] 运动学控制测试
+[2026-01-19 18:31:35] [INFO] [test_differential.py:63] 1. 前进 0.2 m/s
+[2026-01-19 18:31:38] [INFO] [test_differential.py:69] 2. 后退 0.2 m/s
+[2026-01-19 18:31:41] [INFO] [test_differential.py:75] 3. 原地左转 1.0 rad/s
+[2026-01-19 18:31:44] [INFO] [test_differential.py:81] 测试完成!
+[2026-01-19 18:36:14] [INFO] [test_differential.py:19] === 差速底盘测试程序 ===
+[2026-01-19 18:36:14] [INFO] [test_differential.py:26] 正在从 /app/jic_competiion/config/chasis_params.yaml 加载参数...
+[2026-01-19 18:36:14] [INFO] [test_differential.py:35] 参数: 轮径=65mm, 轮距=160mm
+[2026-01-19 18:36:14] [INFO] [test_differential.py:42] 电池电压: 12.00V
+[2026-01-19 18:36:14] [INFO] [test_differential.py:45] 配置电机参数...
+[2026-01-19 18:36:14] [INFO] [test_differential.py:52] 配置电机映射...
+[2026-01-19 18:36:14] [INFO] [test_differential.py:58] 映射: 左轮=M2(dir=1), 右轮=M1(dir=1)
+[2026-01-19 18:36:14] [INFO] [test_differential.py:62] [Phase 3] 运动学控制测试
+[2026-01-19 18:36:14] [INFO] [test_differential.py:63] 1. 前进 0.2 m/s
+[2026-01-19 18:36:17] [INFO] [test_differential.py:69] 2. 后退 0.2 m/s
+[2026-01-19 18:36:20] [INFO] [test_differential.py:75] 3. 原地左转 1.0 rad/s
+[2026-01-19 18:36:23] [INFO] [test_differential.py:81] 测试完成!
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:47] 正在打开 I2C Bus 5...
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:54] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:55] 测试对象：M3电机（右上电机/右前轮）
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:192] ==================================================
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:193] M3电机（右上轮）测试开始
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:194] ==================================================
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:197] 
+[步骤1] 读取电池电压...
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:65] [状态] 电池电压: 11.90 V
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:152] 
+=== 配置电机参数（全局生效）===
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:157] 1. 配置电机类型为: 1
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:163] 2. 配置死区值为: 1600
+[2026-01-19 18:45:51] [INFO] [left_motor_rotate.py:170] 3. 配置磁环线数为: 11
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:177] 4. 配置减速比为: 30
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:182] [完成] 电机参数配置完成！
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:208] 
+[步骤2] 读取M3编码器初始值...
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:85] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:212] 
+[步骤3] PWM控制测试 - M3正向转动
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:213]         预计M3电机（右上轮）会正向转动
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:116] [控制] 设置M3 PWM值: 1500 (范围: -3600 ~ 3600)
+[2026-01-19 18:45:52] [INFO] [left_motor_rotate.py:215]         PWM指令发送成功，等待3秒...
+[2026-01-19 18:45:55] [INFO] [left_motor_rotate.py:85] [状态] M3编码器实时脉冲值: 52
+[2026-01-19 18:45:55] [INFO] [left_motor_rotate.py:223] 
+[步骤4] PWM控制测试 - M3反向转动（倒退）
+[2026-01-19 18:45:55] [INFO] [left_motor_rotate.py:224]         预计M3电机（右上轮）会反向转动
+[2026-01-19 18:45:55] [INFO] [left_motor_rotate.py:116] [控制] 设置M3 PWM值: -1500 (范围: -3600 ~ 3600)
+[2026-01-19 18:45:55] [INFO] [left_motor_rotate.py:226]         PWM指令发送成功，等待3秒...
+[2026-01-19 18:45:58] [INFO] [left_motor_rotate.py:85] [状态] M3编码器实时脉冲值: -55
+[2026-01-19 18:45:58] [INFO] [left_motor_rotate.py:231] 
+[步骤5] 停止M3电机（PWM置0）...
+[2026-01-19 18:45:58] [INFO] [left_motor_rotate.py:116] [控制] 设置M3 PWM值: 0 (范围: -3600 ~ 3600)
+[2026-01-19 18:45:58] [INFO] [left_motor_rotate.py:233]         电机应停止转动
+[2026-01-19 18:45:59] [INFO] [left_motor_rotate.py:237] 
+[步骤6] 速度控制测试 - M3以中速转动
+[2026-01-19 18:45:59] [INFO] [left_motor_rotate.py:238]         *此指令仅对带编码器的电机有效*
+[2026-01-19 18:45:59] [INFO] [left_motor_rotate.py:142] [控制] 设置M3速度值: 400 (范围: -1000 ~ 1000)
+[2026-01-19 18:45:59] [INFO] [left_motor_rotate.py:143]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 18:45:59] [INFO] [left_motor_rotate.py:240]         速度指令发送成功，等待3秒...
+[2026-01-19 18:46:02] [INFO] [left_motor_rotate.py:85] [状态] M3编码器实时脉冲值: 25
+[2026-01-19 18:46:02] [INFO] [left_motor_rotate.py:245] 
+[步骤7] 速度控制测试 - M3反向转动
+[2026-01-19 18:46:02] [INFO] [left_motor_rotate.py:142] [控制] 设置M3速度值: -400 (范围: -1000 ~ 1000)
+[2026-01-19 18:46:02] [INFO] [left_motor_rotate.py:143]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 18:46:02] [INFO] [left_motor_rotate.py:247]         速度指令发送成功，等待3秒...
+[2026-01-19 18:46:05] [INFO] [left_motor_rotate.py:85] [状态] M3编码器实时脉冲值: -28
+[2026-01-19 18:46:05] [INFO] [left_motor_rotate.py:252] 
+[步骤8] 停止M3电机（速度置0）...
+[2026-01-19 18:46:05] [INFO] [left_motor_rotate.py:142] [控制] 设置M3速度值: 0 (范围: -1000 ~ 1000)
+[2026-01-19 18:46:05] [INFO] [left_motor_rotate.py:143]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 18:46:05] [INFO] [left_motor_rotate.py:254]         电机应停止转动（PID锁止状态）
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:258] 
+[步骤9] 读取M3编码器最终值...
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:85] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:261]         编码器变化量: 0
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:263] 
+==================================================
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:264] M3电机测试完成！
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:265] ==================================================
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:116] [控制] 设置M3 PWM值: 0 (范围: -3600 ~ 3600)
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:142] [控制] 设置M3速度值: 0 (范围: -1000 ~ 1000)
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:143]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 18:46:06] [INFO] [left_motor_rotate.py:279] [清理] I2C总线已关闭，电机已停止。
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:48] 正在打开 I2C Bus 5...
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:55] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:56] 测试范围：M2电机（左下/左后轮）和 M4舵机（转向）
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:228] === M2电机测试开始 ===
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:231] 
+1. 读取电池电量...
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:64] [状态] 电池电压: 11.90 V
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:237] 
+2. 读取M2编码器初始数据...
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:241] 
+3. 配置M2电机参数（可选）...
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:138] 
+=== 配置M2电机参数 ===
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:140] 1. 配置电机类型为: 1
+[2026-01-19 18:46:26] [INFO] [right_motor_rotate.py:145] 2. 配置死区值为: 1600
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:151] 3. 配置磁环线数为: 11
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:157] 4. 配置减速比为: 30
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:162] [完成] M2电机参数配置完成！
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:245] 
+4. PWM控制测试 - M2正向转动
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:246]    预计M2电机（左下/左后轮）会正向转动
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 1000
+[2026-01-19 18:46:27] [INFO] [right_motor_rotate.py:248]    PWM控制发送成功，电机应该开始转动
+[2026-01-19 18:46:30] [INFO] [right_motor_rotate.py:254] 
+5. 读取M2编码器数据（转动中）...
+[2026-01-19 18:46:30] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 18:46:30] [INFO] [right_motor_rotate.py:258] 
+6. 停止M2电机...
+[2026-01-19 18:46:30] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 0
+[2026-01-19 18:46:30] [INFO] [right_motor_rotate.py:260]    电机应停止转动
+[2026-01-19 18:46:32] [INFO] [right_motor_rotate.py:264] 
+8. 停止M2电机...
+[2026-01-19 18:46:32] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 0
+[2026-01-19 18:46:34] [INFO] [right_motor_rotate.py:269] 
+9. 读取M2编码器最终数据...
+[2026-01-19 18:46:34] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 18:46:34] [INFO] [right_motor_rotate.py:273] 
+10. 速度控制测试（只对带编码器电机有效）...
+[2026-01-19 18:46:34] [INFO] [right_motor_rotate.py:129] [控制] 设置M2速度值: 300
+[2026-01-19 18:46:34] [INFO] [right_motor_rotate.py:275]    速度控制发送成功，如果电机带编码器，会以300速度运行
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:278]    读取M2编码器数据（速度控制中）...
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:129] [控制] 设置M2速度值: 0
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:282]    速度控制停止
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:287] 
+11. 确保所有电机停止...
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:289]    所有电机已停止
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:291] 
+=== M2电机测试结束 ===
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:292] 测试总结：
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:293] - 电池电压: 11.9
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:294] - M2编码器初始值: 0
+[2026-01-19 18:46:36] [INFO] [right_motor_rotate.py:295] - M2编码器最终值: 0
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:48] 正在打开 I2C Bus 5...
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:55] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:56] 测试对象：M3电机（右上电机/右前轮）
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:193] ==================================================
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:194] M3电机（右上轮）测试开始
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:195] ==================================================
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:198] 
+[步骤1] 读取电池电压...
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:66] [状态] 电池电压: 11.90 V
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:153] 
+=== 配置电机参数（全局生效）===
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:158] 1. 配置电机类型为: 1
+[2026-01-19 19:02:48] [INFO] [left_motor_rotate.py:164] 2. 配置死区值为: 1600
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:171] 3. 配置磁环线数为: 11
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:178] 4. 配置减速比为: 30
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:183] [完成] 电机参数配置完成！
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:209] 
+[步骤2] 读取M3编码器初始值...
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:86] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:213] 
+[步骤3] PWM控制测试 - M3正向转动
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:214]         预计M3电机（右上轮）会正向转动
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:117] [控制] 设置M3 PWM值: 1500 (范围: -3600 ~ 3600)
+[2026-01-19 19:02:49] [INFO] [left_motor_rotate.py:216]         PWM指令发送成功，等待3秒...
+[2026-01-19 19:02:52] [INFO] [left_motor_rotate.py:86] [状态] M3编码器实时脉冲值: 67
+[2026-01-19 19:02:52] [INFO] [left_motor_rotate.py:224] 
+[步骤4] PWM控制测试 - M3反向转动（倒退）
+[2026-01-19 19:02:52] [INFO] [left_motor_rotate.py:225]         预计M3电机（右上轮）会反向转动
+[2026-01-19 19:02:52] [INFO] [left_motor_rotate.py:117] [控制] 设置M3 PWM值: -1500 (范围: -3600 ~ 3600)
+[2026-01-19 19:02:52] [INFO] [left_motor_rotate.py:227]         PWM指令发送成功，等待3秒...
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:48] 正在打开 I2C Bus 5...
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:55] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:56] 测试范围：M2电机（左下/左后轮）和 M4舵机（转向）
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:228] === M2电机测试开始 ===
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:231] 
+1. 读取电池电量...
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:64] [状态] 电池电压: 11.90 V
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:237] 
+2. 读取M2编码器初始数据...
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: -68
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:241] 
+3. 配置M2电机参数（可选）...
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:138] 
+=== 配置M2电机参数 ===
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:140] 1. 配置电机类型为: 1
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:145] 2. 配置死区值为: 1600
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:151] 3. 配置磁环线数为: 11
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:157] 4. 配置减速比为: 30
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:162] [完成] M2电机参数配置完成！
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:245] 
+4. PWM控制测试 - M2正向转动
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:246]    预计M2电机（左下/左后轮）会正向转动
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 1000
+[2026-01-19 19:02:53] [INFO] [right_motor_rotate.py:248]    PWM控制发送成功，电机应该开始转动
+[2026-01-19 19:02:55] [INFO] [left_motor_rotate.py:86] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:02:55] [INFO] [left_motor_rotate.py:232] 
+[步骤5] 停止M3电机（PWM置0）...
+[2026-01-19 19:02:55] [INFO] [left_motor_rotate.py:117] [控制] 设置M3 PWM值: 0 (范围: -3600 ~ 3600)
+[2026-01-19 19:02:55] [INFO] [left_motor_rotate.py:234]         电机应停止转动
+[2026-01-19 19:02:56] [INFO] [left_motor_rotate.py:238] 
+[步骤6] 速度控制测试 - M3以中速转动
+[2026-01-19 19:02:56] [INFO] [left_motor_rotate.py:239]         *此指令仅对带编码器的电机有效*
+[2026-01-19 19:02:56] [INFO] [left_motor_rotate.py:143] [控制] 设置M3速度值: 400 (范围: -1000 ~ 1000)
+[2026-01-19 19:02:56] [INFO] [left_motor_rotate.py:144]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:02:56] [INFO] [left_motor_rotate.py:241]         速度指令发送成功，等待3秒...
+[2026-01-19 19:02:56] [INFO] [right_motor_rotate.py:254] 
+5. 读取M2编码器数据（转动中）...
+[2026-01-19 19:02:56] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 31
+[2026-01-19 19:02:56] [INFO] [right_motor_rotate.py:258] 
+6. 停止M2电机...
+[2026-01-19 19:02:56] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 0
+[2026-01-19 19:02:56] [INFO] [right_motor_rotate.py:260]    电机应停止转动
+[2026-01-19 19:02:58] [INFO] [right_motor_rotate.py:264] 
+8. 停止M2电机...
+[2026-01-19 19:02:58] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 0
+[2026-01-19 19:02:59] [INFO] [left_motor_rotate.py:86] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:02:59] [INFO] [left_motor_rotate.py:246] 
+[步骤7] 速度控制测试 - M3反向转动
+[2026-01-19 19:02:59] [INFO] [left_motor_rotate.py:143] [控制] 设置M3速度值: -400 (范围: -1000 ~ 1000)
+[2026-01-19 19:02:59] [INFO] [left_motor_rotate.py:144]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:02:59] [INFO] [left_motor_rotate.py:248]         速度指令发送成功，等待3秒...
+[2026-01-19 19:03:00] [INFO] [right_motor_rotate.py:269] 
+9. 读取M2编码器最终数据...
+[2026-01-19 19:03:00] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: -24
+[2026-01-19 19:03:00] [INFO] [right_motor_rotate.py:273] 
+10. 速度控制测试（只对带编码器电机有效）...
+[2026-01-19 19:03:00] [INFO] [right_motor_rotate.py:129] [控制] 设置M2速度值: 300
+[2026-01-19 19:03:00] [INFO] [right_motor_rotate.py:275]    速度控制发送成功，如果电机带编码器，会以300速度运行
+[2026-01-19 19:03:02] [INFO] [left_motor_rotate.py:86] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:03:02] [INFO] [left_motor_rotate.py:253] 
+[步骤8] 停止M3电机（速度置0）...
+[2026-01-19 19:03:02] [INFO] [left_motor_rotate.py:143] [控制] 设置M3速度值: 0 (范围: -1000 ~ 1000)
+[2026-01-19 19:03:02] [INFO] [left_motor_rotate.py:144]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:03:02] [INFO] [left_motor_rotate.py:255]         电机应停止转动（PID锁止状态）
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:278]    读取M2编码器数据（速度控制中）...
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:129] [控制] 设置M2速度值: 0
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:282]    速度控制停止
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:287] 
+11. 确保所有电机停止...
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:289]    所有电机已停止
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:291] 
+=== M2电机测试结束 ===
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:292] 测试总结：
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:293] - 电池电压: 11.9
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:294] - M2编码器初始值: -68
+[2026-01-19 19:03:02] [INFO] [right_motor_rotate.py:295] - M2编码器最终值: -24
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:259] 
+[步骤9] 读取M3编码器最终值...
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:86] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:262]         编码器变化量: 0
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:264] 
+==================================================
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:265] M3电机测试完成！
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:266] ==================================================
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:117] [控制] 设置M3 PWM值: 0 (范围: -3600 ~ 3600)
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:143] [控制] 设置M3速度值: 0 (范围: -1000 ~ 1000)
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:144]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:03:03] [INFO] [left_motor_rotate.py:280] [清理] I2C总线已关闭，电机已停止。
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:48] 正在打开 I2C Bus 5...
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:55] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:56] 测试范围：M2电机（左下/左后轮）和 M4舵机（转向）
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:228] === M2电机测试开始 ===
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:231] 
+1. 读取电池电量...
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:64] [状态] 电池电压: 11.90 V
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:237] 
+2. 读取M2编码器初始数据...
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:241] 
+3. 配置M2电机参数（可选）...
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:138] 
+=== 配置M2电机参数 ===
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:140] 1. 配置电机类型为: 1
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:145] 2. 配置死区值为: 1600
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:151] 3. 配置磁环线数为: 11
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:157] 4. 配置减速比为: 30
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:162] [完成] M2电机参数配置完成！
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:245] 
+4. PWM控制测试 - M2正向转动
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:246]    预计M2电机（左下/左后轮）会正向转动
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 1000
+[2026-01-19 19:04:22] [INFO] [right_motor_rotate.py:248]    PWM控制发送成功，电机应该开始转动
+[2026-01-19 19:04:25] [INFO] [right_motor_rotate.py:254] 
+5. 读取M2编码器数据（转动中）...
+[2026-01-19 19:04:25] [INFO] [right_motor_rotate.py:81] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:04:25] [INFO] [right_motor_rotate.py:258] 
+6. 停止M2电机...
+[2026-01-19 19:04:25] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 0
+[2026-01-19 19:04:25] [INFO] [right_motor_rotate.py:260]    电机应停止转动
+[2026-01-19 19:04:27] [INFO] [right_motor_rotate.py:264] 
+8. 停止M2电机...
+[2026-01-19 19:04:27] [INFO] [right_motor_rotate.py:106] 设置M2 PWM值: 0
+[2026-01-19 19:04:27] [WARNING] [right_motor_rotate.py:298] 
+紧急停止所有电机...
+[2026-01-19 19:04:27] [WARNING] [right_motor_rotate.py:303] 已停止所有电机
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:50] 正在打开 I2C Bus 5...
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:57] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:58] 测试对象：M3电机（右上电机/右前轮）
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:195] ==================================================
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:196] M3电机（右上轮）测试开始
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:197] ==================================================
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:200] 
+[步骤1] 读取电池电压...
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:68] [状态] 电池电压: 11.90 V
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:155] 
+=== 配置电机参数（全局生效）===
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:160] 1. 配置电机类型为: 1
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:166] 2. 配置死区值为: 1600
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:173] 3. 配置磁环线数为: 11
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:180] 4. 配置减速比为: 30
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:185] [完成] 电机参数配置完成！
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:211] 
+[步骤2] 读取M3编码器初始值...
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:88] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:215] 
+[步骤3] PWM控制测试 - M3正向转动
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:216]         预计M3电机（右上轮）会正向转动
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:119] [控制] 设置M3 PWM值: 1500 (范围: -3600 ~ 3600)
+[2026-01-19 19:12:47] [INFO] [left_motor_rotate.py:218]         PWM指令发送成功，等待3秒...
+[2026-01-19 19:12:50] [INFO] [left_motor_rotate.py:88] [状态] M3编码器实时脉冲值: 67
+[2026-01-19 19:12:50] [INFO] [left_motor_rotate.py:226] 
+[步骤4] PWM控制测试 - M3反向转动（倒退）
+[2026-01-19 19:12:50] [INFO] [left_motor_rotate.py:227]         预计M3电机（右上轮）会反向转动
+[2026-01-19 19:12:50] [INFO] [left_motor_rotate.py:119] [控制] 设置M3 PWM值: -1500 (范围: -3600 ~ 3600)
+[2026-01-19 19:12:50] [INFO] [left_motor_rotate.py:229]         PWM指令发送成功，等待3秒...
+[2026-01-19 19:12:53] [INFO] [left_motor_rotate.py:88] [状态] M3编码器实时脉冲值: -70
+[2026-01-19 19:12:53] [INFO] [left_motor_rotate.py:234] 
+[步骤5] 停止M3电机（PWM置0）...
+[2026-01-19 19:12:53] [INFO] [left_motor_rotate.py:119] [控制] 设置M3 PWM值: 0 (范围: -3600 ~ 3600)
+[2026-01-19 19:12:53] [INFO] [left_motor_rotate.py:236]         电机应停止转动
+[2026-01-19 19:12:54] [INFO] [left_motor_rotate.py:240] 
+[步骤6] 速度控制测试 - M3以中速转动
+[2026-01-19 19:12:54] [INFO] [left_motor_rotate.py:241]         *此指令仅对带编码器的电机有效*
+[2026-01-19 19:12:54] [INFO] [left_motor_rotate.py:145] [控制] 设置M3速度值: 400 (范围: -1000 ~ 1000)
+[2026-01-19 19:12:54] [INFO] [left_motor_rotate.py:146]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:12:54] [INFO] [left_motor_rotate.py:243]         速度指令发送成功，等待3秒...
+[2026-01-19 19:12:57] [INFO] [left_motor_rotate.py:88] [状态] M3编码器实时脉冲值: 23
+[2026-01-19 19:12:57] [INFO] [left_motor_rotate.py:248] 
+[步骤7] 速度控制测试 - M3反向转动
+[2026-01-19 19:12:57] [INFO] [left_motor_rotate.py:145] [控制] 设置M3速度值: -400 (范围: -1000 ~ 1000)
+[2026-01-19 19:12:57] [INFO] [left_motor_rotate.py:146]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:12:57] [INFO] [left_motor_rotate.py:250]         速度指令发送成功，等待3秒...
+[2026-01-19 19:13:00] [INFO] [left_motor_rotate.py:88] [状态] M3编码器实时脉冲值: -24
+[2026-01-19 19:13:00] [INFO] [left_motor_rotate.py:255] 
+[步骤8] 停止M3电机（速度置0）...
+[2026-01-19 19:13:00] [INFO] [left_motor_rotate.py:145] [控制] 设置M3速度值: 0 (范围: -1000 ~ 1000)
+[2026-01-19 19:13:00] [INFO] [left_motor_rotate.py:146]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:13:00] [INFO] [left_motor_rotate.py:257]         电机应停止转动（PID锁止状态）
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:261] 
+[步骤9] 读取M3编码器最终值...
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:88] [状态] M3编码器实时脉冲值: 0
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:264]         编码器变化量: 0
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:266] 
+==================================================
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:267] M3电机测试完成！
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:268] ==================================================
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:119] [控制] 设置M3 PWM值: 0 (范围: -3600 ~ 3600)
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:145] [控制] 设置M3速度值: 0 (范围: -1000 ~ 1000)
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:146]        *注意：速度指令仅对带编码器的电机有效
+[2026-01-19 19:13:01] [INFO] [left_motor_rotate.py:282] [清理] I2C总线已关闭，电机已停止。
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:50] 正在打开 I2C Bus 5...
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:57] 开始测试：向地址 0x26 发送4路电机驱动板协议指令...
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:58] 测试范围：M2电机（左下/左后轮）和 M4舵机（转向）
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:230] === M2电机测试开始 ===
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:233] 
+1. 读取电池电量...
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:66] [状态] 电池电压: 11.90 V
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:239] 
+2. 读取M2编码器初始数据...
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:83] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:243] 
+3. 配置M2电机参数（可选）...
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:140] 
+=== 配置M2电机参数 ===
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:142] 1. 配置电机类型为: 1
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:147] 2. 配置死区值为: 1600
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:153] 3. 配置磁环线数为: 11
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:159] 4. 配置减速比为: 30
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:164] [完成] M2电机参数配置完成！
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:247] 
+4. PWM控制测试 - M2正向转动
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:248]    预计M2电机（左下/左后轮）会正向转动
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:108] 设置M2 PWM值: 1000
+[2026-01-19 19:13:09] [INFO] [right_motor_rotate.py:250]    PWM控制发送成功，电机应该开始转动
+[2026-01-19 19:13:12] [INFO] [right_motor_rotate.py:256] 
+5. 读取M2编码器数据（转动中）...
+[2026-01-19 19:13:12] [INFO] [right_motor_rotate.py:83] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:13:12] [INFO] [right_motor_rotate.py:260] 
+6. 停止M2电机...
+[2026-01-19 19:13:12] [INFO] [right_motor_rotate.py:108] 设置M2 PWM值: 0
+[2026-01-19 19:13:12] [INFO] [right_motor_rotate.py:262]    电机应停止转动
+[2026-01-19 19:13:14] [INFO] [right_motor_rotate.py:266] 
+8. 停止M2电机...
+[2026-01-19 19:13:14] [INFO] [right_motor_rotate.py:108] 设置M2 PWM值: 0
+[2026-01-19 19:13:16] [INFO] [right_motor_rotate.py:271] 
+9. 读取M2编码器最终数据...
+[2026-01-19 19:13:16] [INFO] [right_motor_rotate.py:83] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:13:16] [INFO] [right_motor_rotate.py:275] 
+10. 速度控制测试（只对带编码器电机有效）...
+[2026-01-19 19:13:16] [INFO] [right_motor_rotate.py:131] [控制] 设置M2速度值: 300
+[2026-01-19 19:13:16] [INFO] [right_motor_rotate.py:277]    速度控制发送成功，如果电机带编码器，会以300速度运行
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:280]    读取M2编码器数据（速度控制中）...
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:83] [状态] M2编码器实时脉冲值: 0
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:131] [控制] 设置M2速度值: 0
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:284]    速度控制停止
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:289] 
+11. 确保所有电机停止...
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:291]    所有电机已停止
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:293] 
+=== M2电机测试结束 ===
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:294] 测试总结：
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:295] - 电池电压: 11.9
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:296] - M2编码器初始值: 0
+[2026-01-19 19:13:18] [INFO] [right_motor_rotate.py:297] - M2编码器最终值: 0
+[2026-01-19 19:46:27] [INFO] [chassis_rotate.py:28] Initializing Chassis Driver...
+[2026-01-19 19:46:27] [INFO] [chassis_rotate.py:39] === Chassis Rotation Test Start ===
+[2026-01-19 19:46:27] [INFO] [chassis_rotate.py:44] 
+1. Testing Clockwise Rotation...
+[2026-01-19 19:46:27] [INFO] [chassis_rotate.py:45]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 19:46:30] [INFO] [chassis_rotate.py:49]    Stopping...
+[2026-01-19 19:46:31] [INFO] [chassis_rotate.py:56] 
+2. Testing Counter-Clockwise Rotation...
+[2026-01-19 19:46:31] [INFO] [chassis_rotate.py:57]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 19:46:34] [INFO] [chassis_rotate.py:61]    Stopping...
+[2026-01-19 19:46:35] [INFO] [chassis_rotate.py:65] 
+=== Chassis Rotation Test Completed ===
+[2026-01-19 19:46:35] [INFO] [chassis_rotate.py:74] Closing Chassis Driver...
+[2026-01-19 19:51:06] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 19:51:06] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 19:51:06] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 19:51:06] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 19:51:06] [ERROR] [chassis_rotate.py:57] >>> Left Motor Test Failed: module 'left_motor' has no attribute 'main'
+[2026-01-19 19:51:07] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 19:51:07] [ERROR] [chassis_rotate.py:67] >>> Right Motor Test Failed: module 'right_motor' has no attribute 'main'
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 19:51:08] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 19:51:11] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 19:51:12] [INFO] [chassis_rotate.py:103] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 19:51:12] [INFO] [chassis_rotate.py:104]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 19:51:12] [INFO] [chassis_rotate.py:105]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 19:51:15] [INFO] [chassis_rotate.py:109]    Stopping...
+[2026-01-19 19:51:16] [INFO] [chassis_rotate.py:120] Closing Chassis Driver...
+[2026-01-19 19:51:16] [INFO] [chassis_rotate.py:132] 
+==================================================
+[2026-01-19 19:51:16] [INFO] [chassis_rotate.py:133] All Chassis Tests Completed.
+[2026-01-19 19:51:16] [INFO] [chassis_rotate.py:134] ==================================================
+[2026-01-19 19:52:21] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 19:52:21] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 19:52:21] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 19:52:21] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 19:52:21] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 19:52:21] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 19:52:21] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 19:52:21] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 19:52:21] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:52:21] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 19:52:21] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 19:52:21] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 19:52:21] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 19:52:21] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 19:52:21] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 19:52:21] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 19:52:21] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:52:21] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 19:52:21] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 19:52:24] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:52:24] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 19:52:24] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 19:52:27] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:52:27] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 19:52:27] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:52:28] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 19:52:28] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 19:52:31] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:52:31] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 19:52:31] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 19:52:34] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:52:34] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 19:52:34] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:52:35] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 19:52:35] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:52:35] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 19:52:35] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 19:52:35] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 19:52:35] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 19:52:35] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:52:35] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:52:35] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 19:52:35] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 19:52:36] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 19:52:36] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 19:52:36] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 19:52:36] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 19:52:36] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 19:52:36] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 19:52:36] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:52:36] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 19:52:36] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:52:36] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 19:52:36] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 19:52:36] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 19:52:36] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 19:52:36] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 19:52:36] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 19:52:36] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 19:52:36] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 19:52:36] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 19:52:36] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 19:52:36] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 19:52:39] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 19:52:39] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:52:39] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 19:52:39] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 19:52:39] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 19:52:41] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 19:52:41] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:52:41] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 19:52:41] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 19:52:41] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 19:52:43] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 19:52:43] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:52:43] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 19:52:43] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 19:52:43] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 19:52:43] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 19:52:43] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 19:52:43] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 19:52:43] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 19:52:43] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 19:52:43] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 19:52:43] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 19:52:44] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 19:52:47] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 19:52:49] [INFO] [chassis_rotate.py:103] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 19:52:49] [INFO] [chassis_rotate.py:104]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 19:52:49] [INFO] [chassis_rotate.py:105]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 19:52:52] [INFO] [chassis_rotate.py:109]    Stopping...
+[2026-01-19 19:52:53] [INFO] [chassis_rotate.py:120] Closing Chassis Driver...
+[2026-01-19 19:52:53] [INFO] [chassis_rotate.py:132] 
+==================================================
+[2026-01-19 19:52:53] [INFO] [chassis_rotate.py:133] All Chassis Tests Completed.
+[2026-01-19 19:52:53] [INFO] [chassis_rotate.py:134] ==================================================
+[2026-01-19 19:53:09] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 19:53:09] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 19:53:09] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 19:53:09] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 19:53:09] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 19:53:09] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:53:09] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 19:53:09] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:09] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 19:53:09] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 19:53:09] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 19:53:09] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 19:53:09] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 19:53:09] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 19:53:09] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 19:53:09] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 19:53:09] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 19:53:09] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 19:53:09] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 19:53:12] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 19:53:12] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:12] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 19:53:12] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 19:53:12] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 19:53:14] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 19:53:14] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:14] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 19:53:14] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 19:53:14] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 19:53:16] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 19:53:16] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:16] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 19:53:16] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 19:53:16] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 19:53:16] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 19:53:16] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 19:53:16] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 19:53:16] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 19:53:16] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 19:53:16] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 19:53:23] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 19:53:23] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 19:53:23] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 19:53:23] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 19:53:23] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 19:53:23] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 19:53:23] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 19:53:23] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 19:53:23] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:53:23] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 19:53:23] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 19:53:23] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 19:53:23] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 19:53:23] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 19:53:23] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 19:53:23] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 19:53:23] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:53:23] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 19:53:23] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 19:53:26] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:53:26] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 19:53:26] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 19:53:29] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:53:29] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 19:53:29] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:53:30] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 19:53:30] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 19:53:33] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:53:33] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 19:53:33] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 19:53:36] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:53:36] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 19:53:36] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:53:37] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 19:53:37] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:53:37] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 19:53:37] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 19:53:37] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 19:53:37] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 19:53:37] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:53:37] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:53:37] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 19:53:37] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 19:53:38] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 19:53:38] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 19:53:38] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 19:53:38] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 19:53:38] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 19:53:38] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 19:53:38] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:53:38] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 19:53:38] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:38] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 19:53:38] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 19:53:38] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 19:53:39] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 19:53:39] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 19:53:39] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 19:53:39] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 19:53:39] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 19:53:39] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 19:53:39] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 19:53:39] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 19:53:42] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 19:53:42] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:42] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 19:53:42] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 19:53:42] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 19:53:44] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 19:53:44] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:44] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 19:53:44] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 19:53:44] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 19:53:46] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 19:53:46] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:53:46] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 19:53:46] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 19:53:46] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 19:53:46] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 19:53:46] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 19:53:46] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 19:53:46] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 19:53:46] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 19:53:46] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 19:53:46] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 19:53:47] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 19:53:50] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 19:53:51] [INFO] [chassis_rotate.py:103] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 19:53:51] [INFO] [chassis_rotate.py:104]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 19:53:51] [INFO] [chassis_rotate.py:105]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 19:53:54] [INFO] [chassis_rotate.py:109]    Stopping...
+[2026-01-19 19:53:55] [INFO] [chassis_rotate.py:120] Closing Chassis Driver...
+[2026-01-19 19:53:55] [INFO] [chassis_rotate.py:132] 
+==================================================
+[2026-01-19 19:53:55] [INFO] [chassis_rotate.py:133] All Chassis Tests Completed.
+[2026-01-19 19:53:55] [INFO] [chassis_rotate.py:134] ==================================================
+[2026-01-19 19:54:25] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 19:54:25] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 19:54:25] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 19:54:25] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 19:54:25] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 19:54:25] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:54:25] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 19:54:25] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:54:25] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 19:54:25] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 19:54:25] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 19:54:26] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 19:54:26] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 19:54:26] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 19:54:26] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 19:54:26] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 19:54:26] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 19:54:26] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 19:54:26] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 19:54:29] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 19:54:29] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:54:29] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 19:54:29] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 19:54:29] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 19:54:31] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 19:54:31] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:54:31] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 19:54:31] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 19:54:31] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 19:54:33] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 19:54:33] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:54:33] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 19:54:33] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 19:54:33] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 19:54:33] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 19:54:33] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 19:54:33] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 19:54:33] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 19:54:33] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 19:54:33] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 19:56:23] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 19:56:23] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 19:56:23] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 19:56:23] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 19:56:23] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 19:56:23] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 19:56:23] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 19:56:23] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 19:56:23] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:56:23] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 19:56:23] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 19:56:23] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 19:56:23] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 19:56:23] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 19:56:23] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 19:56:23] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 19:56:23] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:56:23] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 19:56:23] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 19:56:26] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:56:26] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 19:56:26] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 19:56:29] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:56:29] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 19:56:29] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:56:30] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 19:56:30] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 19:56:33] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:56:33] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 19:56:33] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 19:56:36] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:56:36] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 19:56:36] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:56:37] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 19:56:37] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:56:37] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 19:56:37] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 19:56:37] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 19:56:37] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 19:56:37] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:56:37] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:56:37] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 19:56:37] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 19:56:38] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 19:56:38] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 19:56:38] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 19:56:38] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 19:56:38] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 19:56:38] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 19:56:38] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:56:38] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 19:56:38] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:56:38] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 19:56:38] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 19:56:38] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 19:56:38] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 19:56:38] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 19:56:38] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 19:56:39] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 19:56:39] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 19:56:39] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 19:56:39] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 19:56:39] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 19:56:42] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 19:56:42] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:56:42] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 19:56:42] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 19:56:42] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 19:56:44] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 19:56:44] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:56:44] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 19:56:44] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 19:56:44] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 19:56:46] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 19:56:46] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:56:46] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 19:56:46] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 19:56:46] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 19:56:46] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 19:56:46] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 19:56:46] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 19:56:46] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 19:56:46] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 19:56:46] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 19:56:52] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 19:56:53] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 19:56:56] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 19:56:57] [INFO] [chassis_rotate.py:103] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 19:56:57] [INFO] [chassis_rotate.py:104]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 19:56:57] [INFO] [chassis_rotate.py:105]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 19:57:00] [INFO] [chassis_rotate.py:109]    Stopping...
+[2026-01-19 19:57:01] [INFO] [chassis_rotate.py:120] Closing Chassis Driver...
+[2026-01-19 19:57:01] [INFO] [chassis_rotate.py:132] 
+==================================================
+[2026-01-19 19:57:01] [INFO] [chassis_rotate.py:133] All Chassis Tests Completed.
+[2026-01-19 19:57:01] [INFO] [chassis_rotate.py:134] ==================================================
+[2026-01-19 19:57:37] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 19:57:37] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 19:57:37] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 19:57:37] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 19:57:37] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 19:57:37] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 19:57:37] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 19:57:37] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 19:57:37] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:57:37] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 19:57:37] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 19:57:37] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 19:57:37] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 19:57:37] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 19:57:37] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 19:57:37] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 19:57:37] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:57:37] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 19:57:37] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 19:57:40] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:57:40] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 19:57:40] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 19:57:43] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:57:43] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 19:57:43] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:57:44] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 19:57:44] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 19:57:47] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:57:47] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 19:57:47] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 19:57:50] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:57:50] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 19:57:50] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:57:51] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 19:57:51] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 19:57:51] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 19:57:51] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 19:57:51] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 19:57:51] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 19:57:51] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 19:57:51] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 19:57:51] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 19:57:51] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 19:57:52] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 19:57:52] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 19:57:52] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 19:57:52] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 19:57:52] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 19:57:52] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 19:57:52] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 19:57:52] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 19:57:52] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:57:52] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 19:57:52] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 19:57:52] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 19:57:53] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 19:57:53] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 19:57:53] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 19:57:53] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 19:57:53] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 19:57:53] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 19:57:53] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 19:57:53] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 19:57:56] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 19:57:56] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:57:56] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 19:57:56] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 19:57:56] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 19:57:58] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 19:57:58] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:57:58] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 19:57:58] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 19:57:58] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 19:58:00] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 19:58:00] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 19:58:00] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 19:58:00] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 19:58:00] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 19:58:00] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 19:58:00] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 19:58:00] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 19:58:00] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 19:58:00] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 19:58:00] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 19:58:06] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 19:58:16] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 19:58:16] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 19:58:16] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 19:58:19] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 19:58:27] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 19:58:28] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 19:58:29] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 19:58:40] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 20:01:13] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 20:01:13] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 20:01:13] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 20:01:13] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 20:01:13] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 20:01:13] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 20:01:13] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 20:01:13] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 20:01:13] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:01:13] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 20:01:13] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 20:01:13] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 20:01:14] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 20:01:14] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 20:01:14] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 20:01:14] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 20:01:14] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:01:14] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 20:01:14] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 20:01:17] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:01:17] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 20:01:17] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 20:01:20] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:01:20] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 20:01:20] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:01:21] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 20:01:21] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 20:01:24] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:01:24] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 20:01:24] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 20:01:27] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:01:27] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 20:01:27] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:01:28] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 20:01:28] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:01:28] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 20:01:28] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 20:01:28] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 20:01:28] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 20:01:28] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:01:28] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:01:28] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 20:01:28] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 20:01:29] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 20:01:29] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 20:01:29] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 20:01:29] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 20:01:29] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 20:01:29] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 20:01:29] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:01:29] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 20:01:29] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:01:29] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 20:01:29] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 20:01:29] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 20:01:29] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 20:01:29] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 20:01:29] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 20:01:29] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 20:01:29] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 20:01:29] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 20:01:29] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 20:01:29] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 20:01:32] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 20:01:32] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:01:32] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 20:01:32] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 20:01:32] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 20:01:34] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 20:01:34] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:01:34] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 20:01:34] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 20:01:34] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 20:01:36] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 20:01:36] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:01:36] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 20:01:36] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 20:01:36] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 20:01:36] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 20:01:36] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 20:01:36] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 20:01:36] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 20:01:36] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 20:01:36] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 20:01:36] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 20:01:37] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 20:01:40] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 20:01:41] [INFO] [chassis_rotate.py:103] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 20:01:41] [INFO] [chassis_rotate.py:104]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 20:01:41] [INFO] [chassis_rotate.py:105]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 20:01:44] [INFO] [chassis_rotate.py:109]    Stopping...
+[2026-01-19 20:01:45] [INFO] [chassis_rotate.py:120] Closing Chassis Driver...
+[2026-01-19 20:01:45] [INFO] [chassis_rotate.py:132] 
+==================================================
+[2026-01-19 20:01:45] [INFO] [chassis_rotate.py:133] All Chassis Tests Completed.
+[2026-01-19 20:01:45] [INFO] [chassis_rotate.py:134] ==================================================
+[2026-01-19 20:05:29] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 20:05:29] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 20:05:29] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 20:05:29] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 20:05:29] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 20:05:29] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 20:05:29] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 20:05:29] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 20:05:29] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:05:29] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 20:05:29] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 20:05:30] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 20:05:30] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 20:05:30] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 20:05:30] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 20:05:30] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 20:05:30] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:05:30] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 20:05:30] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 20:05:33] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:05:33] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 20:05:33] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 20:05:36] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:05:36] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 20:05:36] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:05:37] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 20:05:37] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 20:05:40] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:05:40] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 20:05:40] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 20:05:43] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:05:43] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 20:05:43] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:05:44] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 20:05:44] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:05:44] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 20:05:44] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 20:05:44] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 20:05:44] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 20:05:44] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:05:44] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:05:44] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 20:05:44] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 20:05:45] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 20:05:45] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 20:05:45] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 20:05:45] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 20:05:45] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 20:05:45] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 20:05:45] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:05:45] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 20:05:45] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:05:45] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 20:05:45] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 20:05:45] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 20:05:45] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 20:05:45] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 20:05:45] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 20:05:45] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 20:05:45] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 20:05:45] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 20:05:45] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 20:05:45] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 20:05:48] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 20:05:48] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:05:48] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 20:05:48] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 20:05:48] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 20:05:50] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 20:05:50] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:05:50] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 20:05:50] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 20:05:50] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 20:05:52] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 20:05:52] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:05:52] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 20:05:52] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 20:05:52] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 20:05:52] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 20:05:52] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 20:05:52] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 20:05:52] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 20:05:52] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 20:05:52] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 20:05:56] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:90] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:91]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 20:05:57] [INFO] [chassis_rotate.py:92]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 20:06:00] [INFO] [chassis_rotate.py:96]    Stopping...
+[2026-01-19 20:06:01] [INFO] [chassis_rotate.py:103] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 20:06:01] [INFO] [chassis_rotate.py:104]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 20:06:01] [INFO] [chassis_rotate.py:105]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 20:06:04] [INFO] [chassis_rotate.py:109]    Stopping...
+[2026-01-19 20:06:05] [INFO] [chassis_rotate.py:120] Closing Chassis Driver...
+[2026-01-19 20:06:05] [INFO] [chassis_rotate.py:132] 
+==================================================
+[2026-01-19 20:06:05] [INFO] [chassis_rotate.py:133] All Chassis Tests Completed.
+[2026-01-19 20:06:05] [INFO] [chassis_rotate.py:134] ==================================================
+[2026-01-19 20:08:18] [INFO] [chassis_rotate.py:45] 
+==================================================
+[2026-01-19 20:08:18] [INFO] [chassis_rotate.py:46] PHASE 1: Individual Wheel Tests
+[2026-01-19 20:08:18] [INFO] [chassis_rotate.py:47] ==================================================
+[2026-01-19 20:08:18] [INFO] [chassis_rotate.py:52] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 20:08:18] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 20:08:18] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 20:08:18] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 20:08:18] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 20:08:18] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:08:18] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 20:08:18] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 20:08:18] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 20:08:18] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 20:08:18] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 20:08:18] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 20:08:18] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 20:08:18] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:08:18] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 20:08:18] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 20:08:21] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:08:21] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 20:08:21] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 20:08:24] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:08:24] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 20:08:24] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:08:25] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 20:08:25] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 20:08:28] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:08:28] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 20:08:28] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 20:08:31] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:08:31] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 20:08:31] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:08:32] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 20:08:32] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:08:32] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 20:08:32] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 20:08:32] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 20:08:32] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 20:08:32] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:08:32] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:08:32] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 20:08:32] [INFO] [chassis_rotate.py:55] >>> Left Motor Test Completed Successfully.
+[2026-01-19 20:08:33] [INFO] [chassis_rotate.py:62] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 20:08:33] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 20:08:33] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 20:08:33] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 20:08:33] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 20:08:33] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 20:08:33] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:08:33] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 20:08:33] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:08:33] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 20:08:33] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 20:08:33] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 20:08:33] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 20:08:33] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 20:08:33] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 20:08:34] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 20:08:34] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 20:08:34] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 20:08:34] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 20:08:34] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 20:08:37] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 20:08:37] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:08:37] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 20:08:37] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 20:08:37] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 20:08:39] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 20:08:39] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:08:39] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 20:08:39] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 20:08:39] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 20:08:41] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 20:08:41] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:08:41] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 20:08:41] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 20:08:41] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 20:08:41] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 20:08:41] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 20:08:41] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 20:08:41] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 20:08:41] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 20:08:41] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 20:08:41] [INFO] [chassis_rotate.py:65] >>> Right Motor Test Completed Successfully.
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:92] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:93]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 20:08:42] [INFO] [chassis_rotate.py:94]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 20:08:45] [INFO] [chassis_rotate.py:98]    Stopping...
+[2026-01-19 20:08:46] [INFO] [chassis_rotate.py:105] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 20:08:46] [INFO] [chassis_rotate.py:106]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 20:08:46] [INFO] [chassis_rotate.py:107]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 20:08:49] [INFO] [chassis_rotate.py:111]    Stopping...
+[2026-01-19 20:08:50] [INFO] [chassis_rotate.py:122] Closing Chassis Driver...
+[2026-01-19 20:08:50] [INFO] [chassis_rotate.py:134] 
+==================================================
+[2026-01-19 20:08:50] [INFO] [chassis_rotate.py:135] All Chassis Tests Completed.
+[2026-01-19 20:08:50] [INFO] [chassis_rotate.py:136] ==================================================
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:75] 
+==================================================
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:76] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:77] ==================================================
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:79] Initializing Chassis Driver...
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:92] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:93]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 20:09:22] [INFO] [chassis_rotate.py:94]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 20:09:25] [INFO] [chassis_rotate.py:98]    Stopping...
+[2026-01-19 20:09:26] [INFO] [chassis_rotate.py:105] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 20:09:26] [INFO] [chassis_rotate.py:106]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 20:09:26] [INFO] [chassis_rotate.py:107]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 20:09:29] [INFO] [chassis_rotate.py:111]    Stopping...
+[2026-01-19 20:09:30] [INFO] [chassis_rotate.py:122] Closing Chassis Driver...
+[2026-01-19 20:09:30] [INFO] [chassis_rotate.py:134] 
+==================================================
+[2026-01-19 20:09:30] [INFO] [chassis_rotate.py:135] All Chassis Tests Completed.
+[2026-01-19 20:09:30] [INFO] [chassis_rotate.py:136] ==================================================
+[2026-01-19 20:12:48] [INFO] [chassis_rotate.py:55] 
+==================================================
+[2026-01-19 20:12:48] [INFO] [chassis_rotate.py:56] PHASE 1: Individual Wheel Tests
+[2026-01-19 20:12:48] [INFO] [chassis_rotate.py:57] ==================================================
+[2026-01-19 20:12:48] [INFO] [chassis_rotate.py:62] 
+>>> Running Left Motor Test Script (left_motor.py)...
+[2026-01-19 20:12:48] [INFO] [left_motor.py:231] Opening I2C Bus 5...
+[2026-01-19 20:12:48] [INFO] [left_motor.py:238] Starting M3 Motor Test...
+[2026-01-19 20:12:48] [INFO] [left_motor.py:239] Target: M3 Motor (Right Front)
+[2026-01-19 20:12:48] [INFO] [left_motor.py:243] 
+[Step 1] Reading Battery Voltage...
+[2026-01-19 20:12:48] [INFO] [left_motor.py:82] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:12:48] [INFO] [left_motor.py:197] === Configuring Motor Parameters ===
+[2026-01-19 20:12:48] [INFO] [left_motor.py:200] 1. Motor Type: 1
+[2026-01-19 20:12:48] [INFO] [left_motor.py:205] 2. Deadzone: 1600
+[2026-01-19 20:12:48] [INFO] [left_motor.py:211] 3. Magnetic Lines: 11
+[2026-01-19 20:12:48] [INFO] [left_motor.py:217] 4. Reduction Ratio: 30
+[2026-01-19 20:12:49] [INFO] [left_motor.py:222] [Success] Motor parameters configured.
+[2026-01-19 20:12:49] [INFO] [left_motor.py:252] 
+[Step 2] Reading Initial M3 Encoder Value...
+[2026-01-19 20:12:49] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:12:49] [INFO] [left_motor.py:256] 
+[Step 3] PWM Test - M3 Forward
+[2026-01-19 20:12:49] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 1500
+[2026-01-19 20:12:52] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:12:52] [INFO] [left_motor.py:262] 
+[Step 4] PWM Test - M3 Backward
+[2026-01-19 20:12:52] [INFO] [left_motor.py:146] [Control] Set M3 PWM: -1500
+[2026-01-19 20:12:55] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:12:55] [INFO] [left_motor.py:268] 
+[Step 5] Stop M3 Motor (PWM=0)...
+[2026-01-19 20:12:55] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:12:56] [INFO] [left_motor.py:273] 
+[Step 6] Speed Control Test - M3 Forward
+[2026-01-19 20:12:56] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 400
+[2026-01-19 20:12:59] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:12:59] [INFO] [left_motor.py:279] 
+[Step 7] Speed Control Test - M3 Backward
+[2026-01-19 20:12:59] [INFO] [left_motor.py:179] [Control] Set M3 Speed: -400
+[2026-01-19 20:13:02] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:13:02] [INFO] [left_motor.py:285] 
+[Step 8] Stop M3 Motor (Speed=0)...
+[2026-01-19 20:13:02] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:13:03] [INFO] [left_motor.py:290] 
+[Step 9] Reading Final M3 Encoder Value...
+[2026-01-19 20:13:03] [INFO] [left_motor.py:109] [Status] M3 Encoder Value: 0
+[2026-01-19 20:13:03] [INFO] [left_motor.py:293] Encoder Delta: 0
+[2026-01-19 20:13:03] [INFO] [left_motor.py:295] 
+==================================================
+[2026-01-19 20:13:03] [INFO] [left_motor.py:296] M3 Motor Test Completed!
+[2026-01-19 20:13:03] [INFO] [left_motor.py:297] ==================================================
+[2026-01-19 20:13:03] [INFO] [left_motor.py:146] [Control] Set M3 PWM: 0
+[2026-01-19 20:13:03] [INFO] [left_motor.py:179] [Control] Set M3 Speed: 0
+[2026-01-19 20:13:03] [INFO] [left_motor.py:310] [Cleanup] I2C bus closed, motor stopped.
+[2026-01-19 20:13:03] [INFO] [chassis_rotate.py:65] >>> Left Motor Test Completed Successfully.
+[2026-01-19 20:13:04] [INFO] [chassis_rotate.py:72] 
+>>> Running Right Motor Test Script (right_motor.py)...
+[2026-01-19 20:13:04] [INFO] [right_motor.py:304] Opening I2C Bus 5...
+[2026-01-19 20:13:04] [INFO] [right_motor.py:311] Starting test: Sending 4-channel motor driver protocol commands to address 0x26...
+[2026-01-19 20:13:04] [INFO] [right_motor.py:312] Test Scope: M2 Motor (Left Rear) and M4 Servo (Steering)
+[2026-01-19 20:13:04] [INFO] [right_motor.py:315] === M2 Motor Test Start ===
+[2026-01-19 20:13:04] [INFO] [right_motor.py:318] 
+1. Reading Battery Voltage...
+[2026-01-19 20:13:04] [INFO] [right_motor.py:81] [Status] Battery Voltage: 11.90 V
+[2026-01-19 20:13:04] [INFO] [right_motor.py:324] 
+2. Reading M2 Encoder Initial Data...
+[2026-01-19 20:13:04] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:13:04] [INFO] [right_motor.py:328] 
+3. Configuring M2 Motor Parameters (Optional)...
+[2026-01-19 20:13:04] [INFO] [right_motor.py:189] 
+=== Configure M2 Motor Parameters ===
+[2026-01-19 20:13:04] [INFO] [right_motor.py:191] 1. Configure motor type: 1
+[2026-01-19 20:13:04] [INFO] [right_motor.py:196] 2. Configure deadzone: 1600
+[2026-01-19 20:13:04] [INFO] [right_motor.py:202] 3. Configure magnetic lines: 11
+[2026-01-19 20:13:04] [INFO] [right_motor.py:208] 4. Configure reduction ratio: 30
+[2026-01-19 20:13:04] [INFO] [right_motor.py:213] [Done] M2 Motor configuration completed!
+[2026-01-19 20:13:04] [INFO] [right_motor.py:332] 
+4. PWM Control Test - M2 Forward Rotation
+[2026-01-19 20:13:04] [INFO] [right_motor.py:333]    Expected: M2 Motor (Left Rear) rotates forward
+[2026-01-19 20:13:04] [INFO] [right_motor.py:140] Set M2 PWM value: 1000
+[2026-01-19 20:13:04] [INFO] [right_motor.py:335]    PWM control sent successfully, motor should start rotating
+[2026-01-19 20:13:07] [INFO] [right_motor.py:341] 
+5. Reading M2 Encoder Data (Rotating)...
+[2026-01-19 20:13:07] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:13:07] [INFO] [right_motor.py:345] 
+6. Stopping M2 Motor...
+[2026-01-19 20:13:07] [INFO] [right_motor.py:140] Set M2 PWM value: 0
+[2026-01-19 20:13:07] [INFO] [right_motor.py:347]    Motor should stop rotating
+[2026-01-19 20:13:09] [INFO] [right_motor.py:351] 
+9. Reading M2 Encoder Final Data...
+[2026-01-19 20:13:09] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:13:09] [INFO] [right_motor.py:355] 
+10. Speed Control Test (Only valid for motors with encoders)...
+[2026-01-19 20:13:09] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 300
+[2026-01-19 20:13:09] [INFO] [right_motor.py:357]    Speed control sent successfully. If motor has encoder, it will run at speed 300
+[2026-01-19 20:13:11] [INFO] [right_motor.py:360]    Reading M2 Encoder Data (Speed Control)...
+[2026-01-19 20:13:11] [INFO] [right_motor.py:106] [Status] M2 Encoder Pulse Value: 0
+[2026-01-19 20:13:11] [INFO] [right_motor.py:172] [Control] Set M2 speed value: 0
+[2026-01-19 20:13:11] [INFO] [right_motor.py:364]    Speed control stopped
+[2026-01-19 20:13:11] [INFO] [right_motor.py:369] 
+11. Ensuring All Motors Stop...
+[2026-01-19 20:13:11] [INFO] [right_motor.py:372]    All motors stopped
+[2026-01-19 20:13:11] [INFO] [right_motor.py:376] 
+=== M2 Motor Test End ===
+[2026-01-19 20:13:11] [INFO] [right_motor.py:377] Test Summary:
+[2026-01-19 20:13:11] [INFO] [right_motor.py:378] - Battery Voltage: 11.9
+[2026-01-19 20:13:11] [INFO] [right_motor.py:379] - M2 Encoder Initial: 0
+[2026-01-19 20:13:11] [INFO] [right_motor.py:380] - M2 Encoder Final: 0
+[2026-01-19 20:13:11] [INFO] [chassis_rotate.py:75] >>> Right Motor Test Completed Successfully.
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:85] 
+==================================================
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:86] PHASE 2: Chassis Simultaneous Rotation Test
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:87] ==================================================
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:89] Initializing Chassis Driver...
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:101] Applying speed correction: Left=1.15, Right=0.9
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:112] 
+1. Testing Clockwise Rotation (Spin Right)...
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:113]    Action: Left Wheels Forward, Right Wheels Backward
+[2026-01-19 20:13:12] [INFO] [chassis_rotate.py:114]    Sending: Linear=0 m/s, Angular=-1.5 rad/s
+[2026-01-19 20:13:15] [INFO] [chassis_rotate.py:118]    Stopping...
+[2026-01-19 20:13:16] [INFO] [chassis_rotate.py:125] 
+2. Testing Counter-Clockwise Rotation (Spin Left)...
+[2026-01-19 20:13:16] [INFO] [chassis_rotate.py:126]    Action: Left Wheels Backward, Right Wheels Forward
+[2026-01-19 20:13:16] [INFO] [chassis_rotate.py:127]    Sending: Linear=0 m/s, Angular=1.5 rad/s
+[2026-01-19 20:13:19] [INFO] [chassis_rotate.py:131]    Stopping...
+[2026-01-19 20:13:20] [INFO] [chassis_rotate.py:142] Closing Chassis Driver...
+[2026-01-19 20:13:20] [INFO] [chassis_rotate.py:154] 
+==================================================
+[2026-01-19 20:13:20] [INFO] [chassis_rotate.py:155] All Chassis Tests Completed.
+[2026-01-19 20:13:20] [INFO] [chassis_rotate.py:156] ==================================================

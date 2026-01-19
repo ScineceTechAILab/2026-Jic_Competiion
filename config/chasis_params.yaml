@@ -1,1 +1,31 @@
-# 填写底盘关键配置参数
+i2c_config:
+  bus_num: 5
+  device_addr: 38
+motor_config:
+  deadzone: 1600
+  magnetic_lines: 11
+  motor_type: 1
+  reduction_ratio: 30
+motor_mapping:
+  left_dir: 1
+  left_id: 2
+  right_dir: 1
+  right_id: 1
+register_config:
+  REG_BATTERY_VOLTAGE: 8
+  REG_DEADZONE: 2
+  REG_M1_ENCODER: 16
+  REG_M2_ENCODER: 18
+  REG_M3_ENCODER: 20
+  REG_M4_ENCODER: 22
+  REG_MAGNETIC_LINES: 3
+  REG_MOTOR_TYPE: 1
+  REG_PWM_CONTROL: 7
+  REG_REDUCTION_RATIO: 4
+  REG_SPEED_CONTROL: 6
+  REG_WHEEL_DIAMETER: 5
+speed_correction:
+  left_scale: 1.5
+  right_scale: 0.73
+wheel_base_mm: 160
+wheel_diameter_mm: 65

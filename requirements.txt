@@ -1,5 +1,6 @@
 # Python 版本要求 3.
 # 开发依赖
+pyyaml
 smbus2
 i2cdev
 adafruit-extended-bus 

@@ -1,9 +1,41 @@
+
+"""
+ChassisDriver – I²C 4-channel motor driver board control module (differential drive)
+
+This module provides a high-level interface for a 4-wheel motor driver board
+communicating over I²C.  It supports:
+
+* Motor parameter configuration (type, reduction ratio, encoder lines, dead-zone)
+* Closed-loop speed control in RPM
+* Raw PWM control
+* Differential-drive kinematics (linear + angular velocity)
+* Battery voltage monitoring
+* Flexible motor-ID mapping and direction inversion
+
+Usage
+-----
+>>> chassis = ChassisDriver(bus_num=5, addr=0x26)
+>>> chassis.configure_motors(motor_type=1, reduction_ratio=30, magnetic_lines=11)
+>>> chassis.set_movement(linear_x=0.5, angular_z=0.0)   # 0.5 m/s straight
+>>> chassis.stop()
+
+Author
+------
+Your Name <your.email@example.com>
+
+License
+-------
+MIT
+"""
+
+
 import time
 import struct
 import math
 from smbus2 import SMBus
 
 class ChassisDriver:
+    
     """
     4路电机驱动板控制类 (差速模型)
     """
@@ -44,7 +76,20 @@ class ChassisDriver:
         self.left_motor_dir = 1
         self.right_motor_dir = 1
         
+        # 速度修正系数 (默认为1.0)
+        self.left_scale = 1.0
+        self.right_scale = 1.0
+        
         self._connect()
+
+    def set_speed_correction(self, left_scale=1.0, right_scale=1.0):
+        """
+        设置速度修正系数
+        :param left_scale: 左轮速度缩放系数
+        :param right_scale: 右轮速度缩放系数
+        """
+        self.left_scale = left_scale
+        self.right_scale = right_scale
 
     def _connect(self):
         try:
@@ -59,10 +104,12 @@ class ChassisDriver:
     def set_motor_mapping(self, left_id, right_id, left_dir=1, right_dir=1):
         """
         设置电机映射和方向
-        :param left_id: 左轮电机ID (1-4)
-        :param right_id: 右轮电机ID (1-4)
-        :param left_dir: 左轮方向修正 (1 或 -1)
-        :param right_dir: 右轮方向修正 (1 或 -1)
+        
+        - param left_id: 左轮电机ID (1-4)
+        - param right_id: 右轮电机ID (1-4)
+        - param left_dir: 左轮方向修正 (1 或 -1)
+        - param right_dir: 右轮方向修正 (1 或 -1)
+
         """
         self.left_motor_id = left_id
         self.right_motor_id = right_id
@@ -157,9 +204,9 @@ class ChassisDriver:
         rpm_l = (v_l_mps * 60) / (math.pi * D)
         rpm_r = (v_r_mps * 60) / (math.pi * D)
         
-        # 应用方向修正
-        target_speed_l = rpm_l * self.left_motor_dir
-        target_speed_r = rpm_r * self.right_motor_dir
+        # 应用方向修正和速度修正
+        target_speed_l = rpm_l * self.left_motor_dir * self.left_scale
+        target_speed_r = rpm_r * self.right_motor_dir * self.right_scale
         
         # 构建4路电机速度数组
         speeds = [0, 0, 0, 0]
@@ -173,5 +220,24 @@ class ChassisDriver:
             
         self._set_motors_speed(speeds)
 
+    def _set_motors_pwm(self, pwms):
+        """
+        底层发送4路电机PWM
+        :param pwms: 长度为4的列表/元组，对应 [M1, M2, M3, M4] 的PWM值
+        """
+        if not self.bus: return
+        
+        data_bytes = bytearray()
+        for p in pwms:
+            # 限制范围 -3600 ~ 3600
+            p = max(-3600, min(3600, int(p)))
+            data_bytes.extend(struct.pack('>h', p))
+            
+        try:
+            self.bus.write_i2c_block_data(self.addr, self.REG_PWM_CONTROL, list(data_bytes))
+        except OSError as e:
+            print(f"Write PWM failed: {e}")
+
     def stop(self):
         self._set_motors_speed([0, 0, 0, 0])
+        self._set_motors_pwm([0, 0, 0, 0])
