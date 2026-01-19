@@ -241,3 +241,7 @@ class ChassisDriver:
     def stop(self):
         self._set_motors_speed([0, 0, 0, 0])
         self._set_motors_pwm([0, 0, 0, 0])
+
+
+# TODO: 完成底盘驱动运动逆运动学矩阵方程
+# TODO：人工复核代码并且精修代码
