@@ -6,12 +6,14 @@ from smbus2 import SMBus
 # 4路电机驱动板 I2C 控制协议
 # ==========================================
 
+# 使用驱动板的 M2 舵机接口
+
 # I2C 总线号
 BUS_NUM = 5
 # 设备地址 (根据文档为0x26)
 DEVICE_ADDR = 0x26
 
-# 寄存器地址 (根据文档)
+# 寄存器地址 (根据文档) 
 REG_MOTOR_TYPE = 0x01      # 电机类型配置 (只写)
 REG_DEADZONE = 0x02        # 死区配置 (只写)
 REG_MAGNETIC_LINES = 0x03  # 磁环线数 (只写)
