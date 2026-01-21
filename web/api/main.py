@@ -167,6 +167,18 @@ async def get_battery_info():
         logger.error(f"Failed to get battery info: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/chassis/speed")
+async def get_wheel_speed():
+    d = get_driver()
+    if not d:
+        raise HTTPException(status_code=500, detail="Chassis driver not initialized")
+    try:
+        left_speed, right_speed = d.wheel_speed()
+        return {"left_speed": left_speed, "right_speed": right_speed}
+    except Exception as e:
+        logger.error(f"Failed to get wheel speed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/imu")
 async def get_imu_data():
     d = get_imu_driver()

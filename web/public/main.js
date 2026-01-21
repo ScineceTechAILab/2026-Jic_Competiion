@@ -131,12 +131,14 @@ class App {
     // ==========================================
     initChassisView() {
         const batterySection = this.buildBatterySection();
+        const speedMonitorSection = this.buildSpeedMonitorSection();
         const controlSettingsSection = this.buildControlSettingsSection();
         const speedSection = this.buildSpeedSection();
         const controlsSection = this.buildControlsSection();
         
         this.contentArea.appendChild(DOMBuilder.el('div', 'space-y-8', [
             batterySection,
+            speedMonitorSection,
             controlSettingsSection,
             speedSection,
             controlsSection
@@ -148,6 +150,42 @@ class App {
         // Poll battery every 2 seconds
         this.pollBattery();
         this.pollInterval = setInterval(() => this.pollBattery(), 2000);
+
+        // Poll speed every 200ms
+        this.pollSpeed();
+        this.speedPollInterval = setInterval(() => this.pollSpeed(), 200);
+    }
+
+    buildSpeedMonitorSection() {
+        this.leftSpeedDisplay = DOMBuilder.el('div', 'text-2xl font-bold text-gray-800', ['-- m/s']);
+        this.rightSpeedDisplay = DOMBuilder.el('div', 'text-2xl font-bold text-gray-800', ['-- m/s']);
+
+        const leftBox = DOMBuilder.el('div', 'bg-white rounded-lg p-4 border border-gray-200 shadow-sm flex flex-col items-center flex-1', [
+            DOMBuilder.el('h4', 'text-sm font-semibold text-gray-500 mb-1', ['Left Wheel Speed']),
+            this.leftSpeedDisplay
+        ]);
+
+        const rightBox = DOMBuilder.el('div', 'bg-white rounded-lg p-4 border border-gray-200 shadow-sm flex flex-col items-center flex-1', [
+            DOMBuilder.el('h4', 'text-sm font-semibold text-gray-500 mb-1', ['Right Wheel Speed']),
+            this.rightSpeedDisplay
+        ]);
+
+        return DOMBuilder.el('div', 'flex gap-4', [leftBox, rightBox]);
+    }
+
+    async pollSpeed() {
+        try {
+            const response = await fetch(`${this.API_BASE}/chassis/speed`);
+            if (!response.ok) throw new Error('Failed to fetch speed');
+            const data = await response.json();
+            
+            if (this.leftSpeedDisplay) this.leftSpeedDisplay.textContent = `${data.left_speed.toFixed(3)} m/s`;
+            if (this.rightSpeedDisplay) this.rightSpeedDisplay.textContent = `${data.right_speed.toFixed(3)} m/s`;
+        } catch (e) {
+            // console.error(e);
+            if (this.leftSpeedDisplay) this.leftSpeedDisplay.textContent = '-- m/s';
+            if (this.rightSpeedDisplay) this.rightSpeedDisplay.textContent = '-- m/s';
+        }
     }
 
     buildControlSettingsSection() {
@@ -552,12 +590,25 @@ class App {
             ]);
         };
 
+        const statusCard = DOMBuilder.el('div', 'bg-gray-50 p-4 rounded-lg border', [
+            DOMBuilder.el('h3', 'text-sm font-semibold text-gray-500 uppercase mb-2', ['Status']),
+            DOMBuilder.el('div', 'font-mono text-sm space-y-1', [
+                DOMBuilder.el('div', '', ['connection: --'], { id: 'imu-conn' }),
+                DOMBuilder.el('div', '', ['timestamp: --'], { id: 'imu-time' })
+            ])
+        ]);
+
+        const calibrationCard = DOMBuilder.el('div', 'bg-gray-50 p-4 rounded-lg border', [
+            DOMBuilder.el('h3', 'text-sm font-semibold text-gray-500 uppercase mb-2', ['Calibration (0-3)']),
+            DOMBuilder.el('div', 'font-mono text-sm space-y-1', [], { id: 'imu-calib' })
+        ]);
+
         const orientationCard = createCard('Orientation (Quaternion)', 'imu-orient');
         const gyroCard = createCard('Angular Velocity (rad/s)', 'imu-gyro');
         const accelCard = createCard('Linear Acceleration (m/s²)', 'imu-accel');
 
         this.contentArea.appendChild(DOMBuilder.el('div', 'grid grid-cols-1 md:grid-cols-3 gap-4', [
-            orientationCard, gyroCard, accelCard
+            statusCard, calibrationCard, orientationCard, gyroCard, accelCard
         ]));
 
         this.pollInterval = setInterval(() => this.pollIMU(), 200); // 5Hz
@@ -570,21 +621,53 @@ class App {
             const data = await response.json();
 
             const format = (obj) => {
+                if (!obj || typeof obj !== 'object') {
+                    return '--';
+                }
                 return Object.entries(obj)
-                    .map(([k, v]) => `${k}: ${v.toFixed(3)}`)
+                    .map(([k, v]) => {
+                        if (typeof v === 'number' && Number.isFinite(v)) {
+                            return `${k}: ${v.toFixed(3)}`;
+                        }
+                        return `${k}: --`;
+                    })
                     .join('<br>');
             };
 
+            const connEl = document.getElementById('imu-conn');
+            const timeEl = document.getElementById('imu-time');
+            const calibEl = document.getElementById('imu-calib');
             const orientEl = document.getElementById('imu-orient');
             const gyroEl = document.getElementById('imu-gyro');
             const accelEl = document.getElementById('imu-accel');
 
-            if (orientEl) orientEl.innerHTML = format(data.orientation);
-            if (gyroEl) gyroEl.innerHTML = format(data.angular_velocity);
-            if (accelEl) accelEl.innerHTML = format(data.linear_acceleration);
+            const hasData = data && data.orientation && data.angular_velocity && data.linear_acceleration;
+            if (connEl) connEl.textContent = `connection: ${hasData ? 'connected' : 'disconnected'}`;
+            if (timeEl) {
+                if (data && typeof data.timestamp === 'number') {
+                    timeEl.textContent = `timestamp: ${new Date(data.timestamp * 1000).toLocaleString()}`;
+                } else {
+                    timeEl.textContent = 'timestamp: --';
+                }
+            }
+            if (calibEl) calibEl.innerHTML = format(data && data.calibration);
+            if (orientEl) orientEl.innerHTML = format(data && data.orientation);
+            if (gyroEl) gyroEl.innerHTML = format(data && data.angular_velocity);
+            if (accelEl) accelEl.innerHTML = format(data && data.linear_acceleration);
 
         } catch (e) {
-            // this.showStatus(`IMU Error: ${e}`, 'error');
+            const connEl = document.getElementById('imu-conn');
+            const timeEl = document.getElementById('imu-time');
+            const calibEl = document.getElementById('imu-calib');
+            const orientEl = document.getElementById('imu-orient');
+            const gyroEl = document.getElementById('imu-gyro');
+            const accelEl = document.getElementById('imu-accel');
+            if (connEl) connEl.textContent = 'connection: disconnected';
+            if (timeEl) timeEl.textContent = 'timestamp: --';
+            if (calibEl) calibEl.innerHTML = '--';
+            if (orientEl) orientEl.innerHTML = '--';
+            if (gyroEl) gyroEl.innerHTML = '--';
+            if (accelEl) accelEl.innerHTML = '--';
         }
     }
 

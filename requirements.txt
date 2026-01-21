@@ -17,3 +17,6 @@ pytest-cov
 flake8
 mypy
 pre-commit
+
+# 驱动依赖
+adafruit-circuitpython-bno055

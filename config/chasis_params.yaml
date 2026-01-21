@@ -14,18 +14,19 @@ motor_mapping:
 register_config:
   REG_BATTERY_VOLTAGE: 8
   REG_DEADZONE: 2
-  REG_M1_ENCODER: 16
-  REG_M2_ENCODER: 18
-  REG_M3_ENCODER: 20
-  REG_M4_ENCODER: 22
+  REG_M1_ENCODER: 32
+  REG_M2_ENCODER: 34
+  REG_M3_ENCODER: 36
+  REG_M4_ENCODER: 38
   REG_MAGNETIC_LINES: 3
   REG_MOTOR_TYPE: 1
   REG_PWM_CONTROL: 7
   REG_REDUCTION_RATIO: 4
   REG_SPEED_CONTROL: 6
   REG_WHEEL_DIAMETER: 5
+  REG_SPEED_INFO: 12
 speed_correction:
-  left_scale: 0.5
-  right_scale: 0.5
+  left_scale: 1.5
+  right_scale: 1.5
 wheel_base_mm: 160
 wheel_diameter_mm: 65

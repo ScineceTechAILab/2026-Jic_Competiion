@@ -1,0 +1,3 @@
+i2c_config:
+  bus_num: 5
+  device_addr: 0x29

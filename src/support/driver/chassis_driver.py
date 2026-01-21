@@ -67,7 +67,14 @@ class ChassisDriver:
         self.REG_SPEED_CONTROL = reg_conf.get('REG_SPEED_CONTROL', 0x06)
         self.REG_PWM_CONTROL = reg_conf.get('REG_PWM_CONTROL', 0x07)
         self.REG_BATTERY_VOLTAGE = reg_conf.get('REG_BATTERY_VOLTAGE', 0x08)
-        self.REG_ENCODER_BASE = reg_conf.get('REG_ENCODER_BASE', 0x10)
+        
+        self.REG_SPEED_INFO = reg_conf.get('REG_SPEED_INFO', 0x09)
+
+        # Encoder Registers (Updated)
+        self.REG_M1_ENCODER = reg_conf.get('REG_M1_ENCODER', 0x20)
+        self.REG_M2_ENCODER = reg_conf.get('REG_M2_ENCODER', 0x22)
+        self.REG_M3_ENCODER = reg_conf.get('REG_M3_ENCODER', 0x24)
+        self.REG_M4_ENCODER = reg_conf.get('REG_M4_ENCODER', 0x26)
         
         # I2C Config
         i2c_conf = config.get('i2c_config', {})
@@ -104,6 +111,24 @@ class ChassisDriver:
             magnetic_lines=motor_conf.get('magnetic_lines', 11),
             deadzone=motor_conf.get('deadzone', 1600)
         )
+        
+        # Encoder state for speed calculation
+        self._last_encoders = {1: 0, 2: 0, 3: 0, 4: 0}
+        self._last_time = time.time()
+        # Initialize encoder values
+        self._init_encoders()
+
+    def _init_encoders(self):
+        """
+            Initialize encoder values to avoid jump on first speed read
+        """
+        try:
+            for motor_id in range(1, 5):
+                val = self._read_encoder(motor_id)
+                if val is not None:
+                    self._last_encoders[motor_id] = val
+        except Exception:
+            pass
 
     def reconfig_speed_correction(self, left_scale=1.0, right_scale=1.0):
         """
@@ -144,6 +169,9 @@ class ChassisDriver:
         - param magnetic_lines: 磁环线数
         - param deadzone: 死区
         """
+        self.reduction_ratio = reduction_ratio
+        self.magnetic_lines = magnetic_lines
+        
         if not self.bus: return False
         
         try:
@@ -220,6 +248,52 @@ class ChassisDriver:
         D = self.wheel_diameter_mm / 1000.0  # mm -> m
         return (speed_mps * 60) / (math.pi * D)
 
+    def _read_encoder(self, motor_id):
+        """
+        Read 32-bit encoder value for a specific motor.
+        
+        Registers:
+        M1: 0x20(High), 0x21(Low)
+        M2: 0x22(High), 0x23(Low)
+        M3: 0x24(High), 0x25(Low)
+        M4: 0x26(High), 0x27(Low)
+        """
+        if not self.bus: return 0
+        
+        reg_map = {
+            1: self.REG_M1_ENCODER,
+            2: self.REG_M2_ENCODER,
+            3: self.REG_M3_ENCODER,
+            4: self.REG_M4_ENCODER
+        }
+        
+        base_reg = reg_map.get(motor_id)
+        if base_reg is None: return 0
+        
+        try:
+            # Read High 16 bits
+            high_bytes = self.bus.read_i2c_block_data(self.addr, base_reg, 2)
+            high_val = struct.unpack('>h', bytes(high_bytes))[0] # Signed 16-bit
+            
+            # Read Low 16 bits
+            low_bytes = self.bus.read_i2c_block_data(self.addr, base_reg + 1, 2)
+            low_val = struct.unpack('>H', bytes(low_bytes))[0]   # Unsigned 16-bit
+            
+            # Combine: (High << 16) | Low
+            # Note: high_val is signed. Python handles shifting signed integers by preserving sign bit if negative?
+            # No, logic: 32-bit int constructed from 4 bytes.
+            # data = buf[0]<<24 | buf[1]<<16 | bf[0]<<8 | bf[1]
+            
+            # Alternative using 4 bytes directly if possible, but registers are split.
+            # Reconstruct 4 bytes:
+            all_bytes = bytes(high_bytes + low_bytes)
+            val = struct.unpack('>i', all_bytes)[0] # Signed 32-bit int
+            
+            return val
+            
+        except OSError as e:
+            # logger.error(f"Read encoder {motor_id} failed: {e}")
+            return None
 
 
     def move(self, linear_x):
@@ -246,7 +320,7 @@ class ChassisDriver:
         self._set_motors_speed(speeds)
         
 
-    # TODO:修复自转控制两轮同向转动的问题
+
     def rotate(self, angular_z):
         """
         底盘自转运动控制
@@ -287,10 +361,78 @@ class ChassisDriver:
             speeds[self.right_motor_id - 1] = target_speed_r
             
         self._set_motors_speed(speeds)
+
+
+    def wheel_speed(self):
+        """
+        Report left wheel speed and right wheel speed in m/s using encoder feedback.
+        
+        Returns:
+            - tuple: (left_wheel_speed_mps, right_wheel_speed_mps)
+        """
+        if not self.bus: return (0.0, 0.0)
+        
+        current_time = time.time()
+        dt = current_time - self._last_time
+        
+        if dt < 0.01: # Avoid division by zero or too small interval
+            return (0.0, 0.0) # Return 0 or last speed? Better 0 or wait.
+        
+        # Read encoders
+        left_enc = self._read_encoder(self.left_motor_id)
+        right_enc = self._read_encoder(self.right_motor_id)
+        
+        if left_enc is None or right_enc is None:
+            return (0.0, 0.0)
+            
+        # Calculate delta with overflow handling (32-bit)
+        def calc_delta(curr, last):
+            diff = curr - last
+            # Handle 32-bit overflow/wrap
+            if diff > 2147483647:
+                diff -= 4294967296
+            elif diff < -2147483648:
+                diff += 4294967296
+            return diff
+            
+        d_left = calc_delta(left_enc, self._last_encoders[self.left_motor_id])
+        d_right = calc_delta(right_enc, self._last_encoders[self.right_motor_id])
+        
+        # Update state
+        self._last_encoders[self.left_motor_id] = left_enc
+        self._last_encoders[self.right_motor_id] = right_enc
+        self._last_time = current_time
+        
+        # Calculate Speed
+        # RPM = (d_ticks / dt) / (lines * ratio) * 60
+        # MPS = RPM * PI * D / 60
+        # Combined: MPS = (d_ticks / dt) / (lines * ratio) * PI * D
+        
+        # Avoid division by zero
+        if self.magnetic_lines == 0 or self.reduction_ratio == 0:
+            return (0.0, 0.0)
+            
+        factor = (math.pi * self.wheel_diameter_mm / 1000.0) / (self.magnetic_lines * self.reduction_ratio)
+        
+        left_speed = (d_left / dt) * factor
+        right_speed = (d_right / dt) * factor
+        
+        # Direction correction:
+        # If motor direction is reversed (-1), moving "forward" (command > 0) makes motor spin "backward".
+        # Encoder counts "backward" (negative delta).
+        # We want positive speed for forward movement.
+        # So multiply by direction coefficient.
+        
+        return (left_speed * self.left_motor_dir, right_speed * self.right_motor_dir)
         
         
-    # TODO:修复电池信息反馈问题
     def battery_voltage(self):
+        """
+            report battery voltage in V
+        
+        Returns:
+            - float: battery voltage in V
+        """
         if not self.bus: return 0.0
         try:    
             data = self.bus.read_i2c_block_data(self.addr, self.REG_BATTERY_VOLTAGE, 2)
