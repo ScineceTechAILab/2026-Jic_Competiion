@@ -1,0 +1,7 @@
+.trae/*
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.log
+logs/system.log

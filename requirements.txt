@@ -1,11 +1,14 @@
 # Python 版本要求 3.
 # 开发依赖
+pyyaml
+smbus2
 i2cdev
 adafruit-extended-bus 
 adafruit-circuitpython-pca9685 
 adafruit-circuitpython-motor
 Adafruit-Blinka 
 smbus2
+opencv-python
 
 # 测试依赖
 pytest>=7.0
@@ -14,9 +17,6 @@ pytest-cov
 flake8
 mypy
 pre-commit
-<<<<<<< Updated upstream
-=======
 
-# 深度学习
-numpy
->>>>>>> Stashed changes
+# 驱动依赖
+adafruit-circuitpython-bno055
