@@ -20,22 +20,14 @@ import importlib
 import yaml
 from pathlib import Path
 
+from src.support.log import get_logger
+from src.support.driver.chassis_driver import ChassisDriver
+
 # Add project root to sys.path
 PROJECT_ROOT = Path(__file__).parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 # Add current directory to sys.path to allow importing sibling scripts
 sys.path.insert(0, str(Path(__file__).parent))
-
-from src.support.log import get_logger
-from src.support.driver.chassis_driver import ChassisDriver
-
-# Import sibling motor test scripts
-try:
-    import left_motor
-    import right_motor
-except ImportError as e:
-    print(f"Error importing motor scripts: {e}")
-    sys.exit(1)
 
 logger = get_logger(__name__)
 
@@ -47,6 +39,15 @@ def load_config():
         with open(CONFIG_PATH, 'r') as f:
             return yaml.safe_load(f)
     return {}
+
+# Import sibling motor test scripts
+try:
+    import left_motor
+    import right_motor
+except ImportError as e:
+    print(f"Error importing motor scripts: {e}")
+    sys.exit(1)
+
 
 def test_individual_wheels():
     """
@@ -88,7 +89,7 @@ def test_chassis_rotation():
 
     logger.info("Initializing Chassis Driver...")
     try:
-        config = load_config()
+        config = load_chassis_config()
         driver = ChassisDriver()
         # Update motor mapping: M2=Left, M3=Right (based on left_motor.py and right_motor.py)
         driver.set_motor_mapping(left_id=2, right_id=3)
@@ -99,7 +100,7 @@ def test_chassis_rotation():
         right_scale = speed_corr.get('right_scale', 1.0)
         if left_scale != 1.0 or right_scale != 1.0:
             logger.info(f"Applying speed correction: Left={left_scale}, Right={right_scale}")
-            driver.set_speed_correction(left_scale, right_scale)
+            driver.reconfig_speed_correction(left_scale, right_scale)
 
     except Exception as e:
         logger.error(f"Failed to initialize ChassisDriver: {e}")
@@ -112,7 +113,7 @@ def test_chassis_rotation():
         logger.info("\n1. Testing Clockwise Rotation (Spin Right)...")
         logger.info("   Action: Left Wheels Forward, Right Wheels Backward")
         logger.info("   Sending: Linear=0 m/s, Angular=-1.5 rad/s")
-        driver.set_movement(0, -1.5)
+        driver.rotate(-1.5)
         time.sleep(3)
         
         logger.info("   Stopping...")
@@ -125,7 +126,7 @@ def test_chassis_rotation():
         logger.info("\n2. Testing Counter-Clockwise Rotation (Spin Left)...")
         logger.info("   Action: Left Wheels Backward, Right Wheels Forward")
         logger.info("   Sending: Linear=0 m/s, Angular=1.5 rad/s")
-        driver.set_movement(0, 1.5)
+        driver.rotate(1.5)
         time.sleep(3)
         
         logger.info("   Stopping...")
@@ -161,4 +162,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-# TODO: 修复测试自转时左右轮速度不一致问题

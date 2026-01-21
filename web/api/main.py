@@ -5,13 +5,18 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
+import time
 
 # Add project root to sys.path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.support.driver.chassis_driver import ChassisDriver
+from src.support.driver.imu_driver import IMUDriver
+from src.support.driver.lidar_driver import LidarDriver
+from src.support.driver.camera_driver import CameraDriver
 from src.support.log import get_logger
 
 logger = get_logger("web_api")
@@ -29,17 +34,45 @@ app.add_middleware(
 
 CONFIG_PATH = PROJECT_ROOT / 'config/chasis_params.yaml'
 driver = None
+imu_driver = None
+lidar_driver = None
+camera_driver = None
 
 def get_driver():
     global driver
     if driver is None:
         try:
             driver = ChassisDriver()
-            # Default mapping, should match config
-            driver.set_motor_mapping(left_id=2, right_id=3)
         except Exception as e:
-            logger.error(f"Failed to initialize driver: {e}")
+            logger.error(f"Failed to initialize chassis driver: {e}")
     return driver
+
+def get_imu_driver():
+    global imu_driver
+    if imu_driver is None:
+        try:
+            imu_driver = IMUDriver()
+        except Exception as e:
+            logger.error(f"Failed to initialize IMU driver: {e}")
+    return imu_driver
+
+def get_lidar_driver():
+    global lidar_driver
+    if lidar_driver is None:
+        try:
+            lidar_driver = LidarDriver()
+        except Exception as e:
+            logger.error(f"Failed to initialize LiDAR driver: {e}")
+    return lidar_driver
+
+def get_camera_driver():
+    global camera_driver
+    if camera_driver is None:
+        try:
+            camera_driver = CameraDriver()
+        except Exception as e:
+            logger.error(f"Failed to initialize Camera driver: {e}")
+    return camera_driver
 
 class SpeedCorrection(BaseModel):
     left_scale: float
@@ -47,6 +80,8 @@ class SpeedCorrection(BaseModel):
 
 class ControlCommand(BaseModel):
     action: str  # "rotate_cw", "rotate_ccw", "stop"
+    linear_speed: float = 0.5
+    angular_speed: float = 1.5
 
 @app.get("/api/config")
 async def get_config():
@@ -76,7 +111,7 @@ async def update_config(correction: SpeedCorrection):
         # Update driver if active
         d = get_driver()
         if d:
-            d.set_speed_correction(correction.left_scale, correction.right_scale)
+            d.reconfig_speed_correction(correction.left_scale, correction.right_scale)
             
         return {"status": "success", "config": config['speed_correction']}
     except Exception as e:
@@ -94,26 +129,83 @@ async def control_chassis(cmd: ControlCommand):
         with open(CONFIG_PATH, 'r') as f:
             config = yaml.safe_load(f)
             sc = config.get('speed_correction', {})
-            d.set_speed_correction(sc.get('left_scale', 1.0), sc.get('right_scale', 1.0))
+            d.reconfig_speed_correction(sc.get('left_scale', 1.0), sc.get('right_scale', 1.0))
 
         if cmd.action == "rotate_cw":
             # Clockwise: Left Forward, Right Backward
-            # Linear=0, Angular < 0
-            d.set_movement(0, -1.5)
+            # Angular < 0
+            d.rotate(-abs(cmd.angular_speed))
         elif cmd.action == "rotate_ccw":
             # Counter-Clockwise: Left Backward, Right Forward
-            # Linear=0, Angular > 0
-            d.set_movement(0, 1.5)
+            # Angular > 0
+            d.rotate(abs(cmd.angular_speed))
+        elif cmd.action == "move_forward":
+            # Move Forward: Linear > 0
+            d.move(abs(cmd.linear_speed))
+        elif cmd.action == "move_backward":
+            # Move Backward: Linear < 0
+            d.move(-abs(cmd.linear_speed))
         elif cmd.action == "stop":
             d.stop()
         else:
-            raise HTTPException(status_code=400, detail="Invalid action")
+            return {"status": "error", "message": "Unknown action"}
             
-        return {"status": "executed", "action": cmd.action}
+        return {"status": "success", "action": cmd.action}
     except Exception as e:
-        logger.error(f"Control error: {e}")
-        d.stop() # Safety stop
+        logger.error(f"Control failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/battery")
+async def get_battery_info():
+    d = get_driver()
+    if not d:
+        raise HTTPException(status_code=500, detail="Chassis driver not initialized")
+    try:
+        voltage = d.battery_voltage()
+        return {"voltage": voltage}
+    except Exception as e:
+        logger.error(f"Failed to get battery info: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/imu")
+async def get_imu_data():
+    d = get_imu_driver()
+    if not d:
+        raise HTTPException(status_code=500, detail="IMU driver not initialized")
+    try:
+        return d.get_data()
+    except Exception as e:
+        logger.error(f"Failed to get IMU data: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/lidar")
+async def get_lidar_data():
+    d = get_lidar_driver()
+    if not d:
+        raise HTTPException(status_code=500, detail="LiDAR driver not initialized")
+    try:
+        return d.get_scan()
+    except Exception as e:
+        logger.error(f"Failed to get LiDAR data: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/camera/stream")
+async def video_feed():
+    def generate():
+        cam = get_camera_driver()
+        if not cam:
+            return
+        
+        while True:
+            frame = cam.get_jpeg_frame()
+            if frame:
+                yield (b'--frame\r\n'
+                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            else:
+                time.sleep(0.1) # Wait if no frame
+            time.sleep(0.01) # Small delay to prevent CPU hogging
+
+    return StreamingResponse(generate(), media_type="multipart/x-mixed-replace; boundary=frame")
 
 # Mount static files
 app.mount("/", StaticFiles(directory=str(PROJECT_ROOT / "web/public"), html=True), name="static")

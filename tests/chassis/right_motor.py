@@ -25,25 +25,12 @@ PROJECT_ROOT = Path(__file__).parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.support.log import get_logger
+from src.support.config_loader import load_chassis_config
 
 logger = get_logger(__name__)
 
 # Load configuration
-CONFIG_PATH = PROJECT_ROOT / 'config/chasis_params.yaml'
-
-def load_config():
-    """
-    Load configuration from chasis_params.yaml.
-
-    Returns:
-        dict: Configuration dictionary.
-    """
-    if CONFIG_PATH.exists():
-        with open(CONFIG_PATH, 'r') as f:
-            return yaml.safe_load(f)
-    return {}
-
-config = load_config()
+config = load_chassis_config()
 i2c_conf = config.get('i2c_config', {})
 motor_conf = config.get('motor_config', {})
 reg_conf = config.get('register_config', {})
@@ -370,8 +357,8 @@ def main():
         try:
             bus.write_i2c_block_data(DEVICE_ADDR, REG_PWM_CONTROL, [0, 0, 0, 0, 0, 0, 0, 0])
             logger.info("   All motors stopped")
-        except OSError:
-            pass
+        except OSError as e:
+            logger.error(f"Failed to stop motors: {e}")
         
         logger.info("\n=== M2 Motor Test End ===")
         logger.info("Test Summary:")

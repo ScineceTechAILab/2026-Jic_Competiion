@@ -1616,3 +1616,64 @@
 ==================================================
 [2026-01-19 20:13:20] [INFO] [chassis_rotate.py:155] All Chassis Tests Completed.
 [2026-01-19 20:13:20] [INFO] [chassis_rotate.py:156] ==================================================
+[2026-01-21 11:11:56] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:15:50] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:17:23] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:19:54] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:22:04] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:24:09] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:25:00] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:29:06] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:31:05] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:51:22] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 11:51:22] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:23] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:23] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:24] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:24] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:26] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:28] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:51:29] [ERROR] [main.py:112] Control error: ChassisDriver.move() takes 2 positional arguments but 3 were given
+[2026-01-21 11:53:09] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:06:49] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:11:26] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:14:06] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:18:27] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:22:31] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:22:31] [ERROR] [main.py:112] Control error: 'ChassisDriver' object has no attribute '_apply_speed_to_motors'
+[2026-01-21 12:22:32] [ERROR] [main.py:112] Control error: 'ChassisDriver' object has no attribute '_apply_speed_to_motors'
+[2026-01-21 12:22:32] [ERROR] [main.py:112] Control error: 'ChassisDriver' object has no attribute '_apply_speed_to_motors'
+[2026-01-21 12:22:35] [ERROR] [main.py:112] Control error: 'ChassisDriver' object has no attribute '_apply_speed_to_motors'
+[2026-01-21 12:22:36] [ERROR] [main.py:112] Control error: 'ChassisDriver' object has no attribute '_apply_speed_to_motors'
+[2026-01-21 12:22:36] [ERROR] [main.py:112] Control error: 'ChassisDriver' object has no attribute '_apply_speed_to_motors'
+[2026-01-21 12:24:30] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 12:58:56] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:02:31] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:04:53] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:08:17] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:31:28] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:31:44] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:33:03] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:35:28] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:35:43] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 13:40:45] [INFO] [camera_driver.py:31] Camera 0 opened successfully
+[2026-01-21 13:42:48] [INFO] [camera_driver.py:31] Camera 0 opened successfully
+[2026-01-21 13:42:52] [WARNING] [camera_driver.py:55] Failed to read frame
+[2026-01-21 13:42:53] [INFO] [camera_driver.py:42] Camera closed
+[2026-01-21 14:39:39] [INFO] [camera_driver.py:32] Camera 0 opened successfully
+[2026-01-21 14:39:39] [WARNING] [camera_driver.py:56] Failed to read frame
+[2026-01-21 14:39:39] [INFO] [camera_driver.py:43] Camera closed
+[2026-01-21 14:40:05] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:05] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:05] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:05] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:05] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:05] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:06] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:06] [ERROR] [camera_driver.py:22] Failed to open camera 0
+[2026-01-21 14:40:07] [INFO] [camera_driver.py:32] Camera 0 opened successfully
+[2026-01-21 14:40:07] [WARNING] [camera_driver.py:56] Failed to read frame
+[2026-01-21 14:40:07] [WARNING] [camera_driver.py:56] Failed to read frame
+[2026-01-21 14:40:07] [INFO] [camera_driver.py:43] Camera closed
+[2026-01-21 14:42:44] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-21 14:42:48] [INFO] [camera_driver.py:32] Camera 0 opened successfully
