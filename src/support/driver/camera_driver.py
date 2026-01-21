@@ -29,7 +29,7 @@ class CameraDriver:
                 # self.cap.set(cv2.CAP_PROP_FPS, 30)
                 
                 self.is_opened = True
-                logger.info(f"Camera {self.camera_index} opened successfully")
+                logger.debug(f"Camera {self.camera_index} opened successfully") 
                 return True
             except Exception as e:
                 logger.error(f"Error opening camera: {e}")
@@ -53,7 +53,7 @@ class CameraDriver:
                 if ret:
                     return frame
                 else:
-                    logger.warning("Failed to read frame")
+                    logger.debug("Failed to read frame")
                     return None
             return None
 
