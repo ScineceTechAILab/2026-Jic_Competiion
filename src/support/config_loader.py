@@ -68,12 +68,4 @@ def load_imu_config() -> dict:
     return load_config('imu_params.yaml')
 
 
-def load_imu_config() -> dict:
-    """
-    Load imu configuration from imu_params.yaml.
-    
-    Returns:
-        dict: Configuration dictionary.
-    """
-    return load_config('imu_params.yaml')
 

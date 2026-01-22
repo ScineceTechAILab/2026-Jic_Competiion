@@ -142,3 +142,22 @@
 [2026-01-21 19:44:44] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
 [2026-01-21 19:44:44] [ERROR] [imu_driver.py:35] Failed to initialize IMU BNO055 on Bus 5: No I2C device at address: 0x29
 [2026-01-21 19:44:47] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 16:16:54] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 16:17:31] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 16:37:28] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 16:42:52] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 18:19:36] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 18:19:36] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
+[2026-01-22 18:19:37] [INFO] [imu_driver.py:33] IMU BNO055 initialized on Bus 5 Address 0x29
+[2026-01-22 18:19:58] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 18:19:58] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
+[2026-01-22 18:19:59] [INFO] [imu_driver.py:33] IMU BNO055 initialized on Bus 5 Address 0x29
+[2026-01-22 18:20:35] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 18:20:36] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
+[2026-01-22 18:20:36] [INFO] [imu_driver.py:33] IMU BNO055 initialized on Bus 5 Address 0x29
+[2026-01-22 18:21:05] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 18:21:06] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
+[2026-01-22 18:21:06] [INFO] [imu_driver.py:33] IMU BNO055 initialized on Bus 5 Address 0x29
+[2026-01-22 18:21:58] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
+[2026-01-22 18:21:59] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
+[2026-01-22 18:21:59] [INFO] [imu_driver.py:33] IMU BNO055 initialized on Bus 5 Address 0x29

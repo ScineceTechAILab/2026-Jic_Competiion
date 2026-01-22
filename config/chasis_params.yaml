@@ -23,8 +23,8 @@ register_config:
   REG_PWM_CONTROL: 7
   REG_REDUCTION_RATIO: 4
   REG_SPEED_CONTROL: 6
-  REG_WHEEL_DIAMETER: 5
   REG_SPEED_INFO: 12
+  REG_WHEEL_DIAMETER: 5
 speed_correction:
   left_scale: 1.5
   right_scale: 1.5
