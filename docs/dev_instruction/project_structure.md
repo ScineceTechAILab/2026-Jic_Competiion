@@ -78,6 +78,7 @@
 *   `dev_instruction/`: 开发指南（包括本文档、硬件配置、常用命令）。
 *   `device_manuals/`: 硬件设备手册。
 *   `dev_diary/`: 开发日记。
+*   `dev_logs/`: 技术日志与逻辑说明。
 *   `detail_plan/`: 详细设计文档。
 
 ## 开发建议
