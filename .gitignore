@@ -5,3 +5,7 @@ __pycache__/
 *.pyd
 *.log
 logs/system.log
+cache/
+build/
+install/
+log/

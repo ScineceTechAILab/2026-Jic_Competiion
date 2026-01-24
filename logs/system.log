@@ -161,3 +161,19 @@
 [2026-01-22 18:21:58] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/chasis_params.yaml
 [2026-01-22 18:21:59] [INFO] [config_loader.py:41] Loaded configuration from /app/jic_competiion/config/imu_params.yaml
 [2026-01-22 18:21:59] [INFO] [imu_driver.py:33] IMU BNO055 initialized on Bus 5 Address 0x29
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:10] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:64] Chassis Node Started
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:38] Chassis Driver Initialized Successfully
+[2026-01-24 19:41:37] [INFO] [chassis_node.py:64] Chassis Node Started

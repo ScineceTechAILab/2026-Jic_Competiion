@@ -92,8 +92,7 @@
         - [x] 里程计代码的编写验证
         - [x] web 测试网页
     - [x] 底盘测试代码(基于IMU和里程计双校验)
-
-- [ ] 底盘运动学建模与驱动控制验证。
+- [x] 底盘运动学建模与驱动控制验证。
 - [ ] 调研并验证适合双目视觉+LiDAR+IMU融合的 SLAM 方案 (如 RTAB-Map, LVI-SAM)。
 - [ ] 初步配置 Nav2 导航栈以对接 SLAM。
 - [ ] 激光雷达/视觉简易避障。
@@ -201,9 +200,15 @@ pip3 install -r requirements.txt
 
 ### 3. 编译工作空间
 ```bash
-colcon build --symlink-install
-source install/setup.bash
+# 使用提供的构建脚本（自动指定输出目录为 cache/）
+chmod +x build.sh
+./build.sh
+
+# Source 环境变量
+source cache/install/setup.bash
 ```
+
+> **注意**: 为保持项目根目录整洁，所有构建产物（build, install, log）均存放在 `cache/` 目录下。
 
 ### 4. 运行
 ```bash

@@ -10,6 +10,11 @@
 
 ### 📌 阶段 I: 硬件与驱动基建 (Hardware & Driver)
 **目标**: 确保数据“可用”、“同步”、“对齐”。
+*   [ ] **硬件驱动节点化 (Driver Node Impl)**:
+    *   **底盘**: 封装I2C通信，发布 `/wheel/odom` (nav_msgs/Odometry)，订阅 `/cmd_vel`。
+    *   **IMU**: 发布 `/imu/data` (sensor_msgs/Imu)。
+    *   **LiDAR**: 发布 `/scan` (sensor_msgs/LaserScan)。
+    *   **Camera**: 发布 `/camera/image_raw` 及 `/camera/camera_info`。
 *   [ ] **传感器频率验证**:
     *   IMU: 需 > 100Hz (推荐 200Hz+)，且波动 < 5%。
     *   LiDAR: 10Hz。
@@ -55,6 +60,7 @@
 ## 2. 详细执行 Checklist (Actionable Items)
 
 ### ✅ Day 1: 传感器体检
+- [ ] 完成各硬件驱动的 ROS2 节点封装与独立运行测试。
 - [ ] 检查 IMU 坐标系方向（通常 x-前, y-左, z-上）。
 - [ ] 检查 TF 树是否完整 (`ros2 run tf2_tools view_frames`)。
 - [ ] 录制一段 60秒 的 `rosbag`，包含所有传感器话题。
