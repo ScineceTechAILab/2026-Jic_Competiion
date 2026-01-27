@@ -12,9 +12,16 @@ ros-humble-backward-ros libdw-dev libssl-dev mesa-utils libgl1 libgoogle-glog-de
 
 echo "Dependencies installed."
 
-echo "Cloning sllidar_ros2..."
-if [ ! -d "src/support/sdk/sllidar_ros2" ]; then
-    git clone https://github.com/Slamtec/sllidar_ros2.git src/support/sdk/sllidar_ros2
+echo "Cloning LDS50C_SDK..."
+if [ ! -d "src/support/sdk/LDS50C_SDK" ]; then
+    git clone https://github.com/BlueSeaLidar/sdk2.git src/support/sdk/LDS50C_SDK
 else
-    echo "sllidar_ros2 already exists."
+    echo "LDS50C_SDK already exists."
+fi
+
+echo "Cloning OrbbecSDK_ROS2..."
+if [ ! -d "src/support/sdk/OrbbecSDK_ROS2" ]; then
+    git clone https://github.com/orbbec/OrbbecSDK_ROS2.git src/support/sdk/OrbbecSDK_ROS2
+else
+    echo "OrbbecSDK_ROS2 already exists."
 fi

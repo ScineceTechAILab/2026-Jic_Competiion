@@ -3,14 +3,9 @@
 <package format="3">
   <name>camera_control</name>
   <version>0.0.0</version>
-  <description>Camera control package for publishing image_raw</description>
-  <maintainer email="developer@example.com">developer</maintainer>
-  <license>MIT</license>
-
-  <depend>rclpy</depend>
-  <depend>sensor_msgs</depend>
-  <exec_depend>orbbec_camera</exec_depend>
-  <exec_depend>ros2launch</exec_depend>
+  <description>TODO: Package description</description>
+  <maintainer email="3340580252@qq.com">root</maintainer>
+  <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

@@ -1,5 +1,7 @@
-log_dir: "/app/jic_competiion/logs"
+log_dir: "/app/jic_competiion/log"
 log_level: "DEBUG"
+log_format: "[%(asctime)s] [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s"
+date_format: "%Y-%m-%d %H:%M:%S"
 log_file_name: "system.log"
 max_bytes: 10485760 # 10MB
 backup_count: 5

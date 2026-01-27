@@ -31,9 +31,9 @@
 > 提示：详情见 https://ocn6ppgv7e2y.feishu.cn/wiki/ZlrswanpPiwoHEkxLWKc5cVInMd;https://ocn6ppgv7e2y.feishu.cn/wiki/MLatwtcaTiSHSmkN3OcclLKGnIf 及其子文档
 
 ### 激光雷达 (LiDAR)
-- **型号**: RPLIDAR S1
-- **串口/USB**: 串口
-- **波特率**: 115200
+- **型号**: LDS50C
+- **串口/USB**: 串口()
+- **波特率**: 384000 500000 768000 921600
 
 ### IMU
 - **型号**: BNO055（陀螺仪+加速度计+磁力计）
@@ -43,9 +43,10 @@
 ## 5. 接口与连线定义 (Pinout)
 | 模块 | RDK 接口 | 引脚号 | 备注 |
 | :--- | :--- | :--- | :--- |
-| 底盘 MCU | UART | | |
-| 激光雷达 | USB | | |
-| 摄像头 | MIPI / USB | | |
+| 底盘 MCU | IIC | | |
+| 激光雷达 | UART | | /dev/ttyS1 (设备树) |
+| 摄像头 |  USB | | |
+| IMU | IIC | | |
 
 ## 6. 电源管理
 - **电池规格**: 24V 8S 3700mAh 电池组

@@ -4,5 +4,6 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "markdown.validate.enabled": true
+    "markdown.validate.enabled": true,
+    "cmake.sourceDirectory": "/app/jic_competiion/src/support/sdk/LDS50C_SDK"
 }

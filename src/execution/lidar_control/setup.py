@@ -23,6 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'lidar_node = lidar_control.lidar_node:main',
         ],
     },
 )
