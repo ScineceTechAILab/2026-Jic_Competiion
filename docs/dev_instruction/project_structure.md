@@ -52,7 +52,8 @@
     *   `end_effector/`: 末端执行器（夹爪/吸盘）控制。
 
 *   **`support/` (支持层)**
-    *   `driver/`: 通用硬件驱动封装。
+    *   `sdk/`: 第三方 SDK 库 (如 OrbbecSDK_ROS2)。
+    *   `driver/`: 自写通用硬件驱动封装。
     *   `log/`: 日志系统封装。
     *   `ros2_utils/`: ROS 2 相关工具函数。
     *   `simulation/`: 仿真相关代码。
