@@ -53,10 +53,10 @@ class LidarNode(Node):
         self.declare_parameter('scan_mode', 'Standard')
         self.declare_parameter('channel_type', 'serial')
         self.declare_parameter('use_mock', False)
+        
         # Angle masking (degrees)
         self.declare_parameter('mask_angle_start', 0.0) 
         self.declare_parameter('mask_angle_end', 0.0)   # If start == end, no mask
-
         self.load_parameters()
         self.add_on_set_parameters_callback(self.on_parameter_change)
 

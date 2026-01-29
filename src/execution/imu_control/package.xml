@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>camera_control</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="3340580252@qq.com">root</maintainer>
-  <license>TODO: License declaration</license>
+  <name>imu_control</name>
+  <version>0.0.1</version>
+  <description>IMU Control Package for BNO055</description>
+  <maintainer email="developer@example.com">Developer</maintainer>
+  <license>MIT</license>
 
-  <exec_depend>orbbec_camera</exec_depend>
-  <exec_depend>ros_launch</exec_depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
