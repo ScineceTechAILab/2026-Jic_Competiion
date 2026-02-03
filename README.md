@@ -183,6 +183,14 @@ graph TD
 
 ## 📦 安装与使用
 
+在开始前，请确保是你的 RDK X5环境满足以下条件
+
+```
+
+```
+
+
+
 ### 1. 克隆仓库
 ```bash
 git clone https://github.com/YourTeam/ai-agv-manipulator.git
