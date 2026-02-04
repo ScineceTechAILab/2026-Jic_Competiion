@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import sys
 import time
-from pathlib import Path
-
 import rclpy
+
+from pathlib import Path
 from rclpy.node import Node
 from sensor_msgs.msg import Imu
 
@@ -39,6 +39,10 @@ class ImuNode(Node):
         
         self.frame_id = self.get_parameter('frame_id').value
         self.rate = self.get_parameter('pub_rate').value
+        if not isinstance(self.rate, (float, int)) or self.rate <= 0:
+            logger.error("Invalid 'pub_rate' parameter. Must be a positive number.")
+            self.destroy_node()
+            return
         
         try:
             self.driver = IMUDriver()
@@ -52,9 +56,9 @@ class ImuNode(Node):
             self.destroy_node()
             return
 
-        self.imu_pub = self.create_publisher(Imu, 'imu/data', 10)
-        
+        self.imu_pub = self.create_publisher(Imu, 'imu_node/data', 10)
         self.timer = self.create_timer(1.0 / self.rate, self.timer_callback)
+        
         logger.info("IMU Node Started")
 
     def timer_callback(self):
@@ -84,12 +88,13 @@ class ImuNode(Node):
         msg.linear_acceleration.y = float(data['linear_acceleration']['y'])
         msg.linear_acceleration.z = float(data['linear_acceleration']['z'])
         
-        # Covariance matrices - TODO: Load from config or calibration
+        # Covariance matrices 
         # Setting to 0 essentially says "unknown" or "perfect" depending on interpretation, 
         # usually 0 on diagonal for unknown is safer or -1 for first element
         msg.orientation_covariance = [0.0] * 9
         msg.angular_velocity_covariance = [0.0] * 9
         msg.linear_acceleration_covariance = [0.0] * 9
+        
         
         self.imu_pub.publish(msg)
 
@@ -98,6 +103,7 @@ def main(args=None):
     node = ImuNode()
     try:
         rclpy.spin(node)
+
     except KeyboardInterrupt:
         pass
     finally:
