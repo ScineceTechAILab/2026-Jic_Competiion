@@ -13,23 +13,16 @@ import yaml
 from enum import Enum
 from pathlib import Path
 
-# Add project root to sys.path
-PROJECT_ROOT = Path(__file__).parents[4]
-sys.path.insert(0, str(PROJECT_ROOT))
-
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 from rcl_interfaces.msg import ParameterDescriptor, SetParametersResult
 
-from src.support.log import get_logger
-from src.support.driver.lidar_driver import LDS50CDriver
+# 使用标准的包导入方式
+from support.driver.lidar_driver import LDS50CDriver
 
-try:
-    from rplidar import RPLidar, RPLidarException
-except ImportError:
-    RPLidar = None
-    RPLidarException = Exception
+# Project Root for config loading
+PROJECT_ROOT = Path(__file__).parents[4]
 
 class NodeState(Enum):
     DISCONNECTED = 0
@@ -40,8 +33,6 @@ class NodeState(Enum):
 class LidarNode(Node):
     def __init__(self):
         super().__init__('lidar_node')
-        
-        self.logger = get_logger('lidar_node')
         
         # --- Parameters ---
         self.declare_parameter('serial_port', '/dev/ttyS1')
@@ -66,9 +57,7 @@ class LidarNode(Node):
         self.scan_data = [float('inf')] * 360
         self.running = True
         self.lock = threading.Lock()
-        
-        # --- ROS Communication ---
-        self.scan_pub = self.create_publisher(LaserScan, 'scan', 10)
+        self.scan_pub = self.create_publisher(LaserScan, '~/scan', 10)
         
         # --- Threads ---
         self.scan_thread = threading.Thread(target=self.main_loop)
@@ -163,24 +152,24 @@ class LidarNode(Node):
     def force_stop_lidar(self):
         """Send raw stop command to serial port to clear Lidar state."""
         try:
-            self.logger.info(f"Force stopping Lidar on {self.serial_port} to clear buffer...")
+            self.get_logger().info(f"Force stopping Lidar on {self.serial_port} to clear buffer...")
             ser = serial.Serial(self.serial_port, self.serial_baudrate, timeout=1)
             # RPLidar STOP command is 0xA5 0x25
             ser.write(b'\xa5\x25')
             time.sleep(0.5)
             ser.close()
         except Exception as e:
-            self.logger.warning(f"Could not force stop Lidar: {e}")
+            self.get_logger().warning(f"Could not force stop Lidar: {e}")
 
     def connect_lidar(self):
         try:
             self.state = NodeState.CONNECTING
-            self.logger.info(f"Connecting to {self.lidar_type} on {self.serial_port} at {self.serial_baudrate}...")
+            self.get_logger().info(f"Connecting to {self.lidar_type} on {self.serial_port} at {self.serial_baudrate}...")
             
             if self.lidar_type == 'LDS-50C':
                 self.lidar = LDS50CDriver(self.serial_port, baudrate=self.serial_baudrate)
                 if self.lidar.connect():
-                    self.logger.info(f"Connected to LDS-50C")
+                    self.get_logger().info(f"Connected to LDS-50C")
                     self.state = NodeState.SCANNING
                     return True
                 else:
@@ -188,7 +177,7 @@ class LidarNode(Node):
             else:
                 # RPLidar logic
                 if RPLidar is None:
-                    self.logger.warning("RPLidar library not installed. Running in MOCK mode.")
+                    self.get_logger().warning("RPLidar library not installed. Running in MOCK mode.")
                     return False
                 
                 self.force_stop_lidar()
@@ -196,10 +185,10 @@ class LidarNode(Node):
                 self.lidar.clear_input()
                 info = self.lidar.get_info()
                 health = self.lidar.get_health()
-                self.logger.info(f"Connected. Info: {info}, Health: {health}")
+                self.get_logger().info(f"Connected. Info: {info}, Health: {health}")
                 
                 if health[0] == 'Error':
-                    self.logger.error(f"Lidar health error: {health[1]}. Attempting reset.")
+                    self.get_logger().error(f"Lidar health error: {health[1]}. Attempting reset.")
                     self.lidar.reset()
                     time.sleep(1)
                 
@@ -208,10 +197,10 @@ class LidarNode(Node):
         except Exception as e:
             err_msg = str(e)
             if "Incorrect descriptor starting bytes" in err_msg:
-                self.logger.error(f"Failed to connect to Lidar: {err_msg}. "
+                self.get_logger().error(f"Failed to connect to Lidar: {err_msg}. "
                                  f"Suggestion: Check if baudrate {self.serial_baudrate} is correct for your Lidar model.")
             else:
-                self.logger.error(f"Failed to connect to Lidar: {e}")
+                self.get_logger().error(f"Failed to connect to Lidar: {e}")
             
             self.state = NodeState.ERROR
             self.cleanup_lidar()
@@ -239,7 +228,7 @@ class LidarNode(Node):
                 if self.connect_lidar():
                     retry_delay = 1.0 # Reset delay on success
                 else:
-                    self.logger.info(f"Retrying connection in {retry_delay:.1f}s...")
+                    self.get_logger().info(f"Retrying connection in {retry_delay:.1f}s...")
                     time.sleep(retry_delay)
                     retry_delay = min(retry_delay * 2, 30.0) # Exponential backoff
                     continue
@@ -261,10 +250,10 @@ class LidarNode(Node):
                     self.publish_scan()
                     
             except RPLidarException as e:
-                self.logger.error(f"Lidar exception: {e}")
+                self.get_logger().error(f"Lidar exception: {e}")
                 self.state = NodeState.ERROR
             except Exception as e:
-                self.logger.error(f"Unexpected error in scan loop: {e}")
+                self.get_logger().error(f"Unexpected error in scan loop: {e}")
                 self.state = NodeState.ERROR
             finally:
                 self.cleanup_lidar()
@@ -318,7 +307,7 @@ class LidarNode(Node):
         self.scan_pub.publish(msg)
 
     def destroy_node(self):
-        self.logger.info("Shutting down Lidar Node...")
+        self.get_logger().info("Shutting down Lidar Node...")
         self.running = False
         self.cleanup_lidar()
         if self.scan_thread.is_alive():
@@ -338,9 +327,4 @@ def main(args=None):
         rclpy.shutdown()
 
 if __name__ == '__main__':
-    import sys
-    from pathlib import Path
-
-    PROJECT_ROOT = Path(__file__).parents[4] # Adjusted for path depth
-    sys.path.insert(0, str(PROJECT_ROOT))
     main()

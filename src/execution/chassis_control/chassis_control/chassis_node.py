@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 import math
-import sys
-from pathlib import Path
 
 import rclpy
 from rclpy.node import Node
@@ -9,22 +7,12 @@ from geometry_msgs.msg import Twist, TransformStamped, Quaternion
 from nav_msgs.msg import Odometry
 from tf2_ros import TransformBroadcaster
 
-# Import from standard package structure if installed, or fallback to relative import for dev
-try:
-    from chassis_control.driver.chassis_driver import ChassisDriver
-    from chassis_control.log import get_logger
-except ImportError:
-    # Adjust path to find src if running locally without install
-    PROJECT_ROOT = Path(__file__).parents[4]
-    sys.path.insert(0, str(PROJECT_ROOT))
-    from src.support.driver.chassis_driver import ChassisDriver
-    from src.support.log import get_logger
-
-logger = get_logger(__name__)
+# 使用标准的包导入方式
+from support.driver.chassis_driver import ChassisDriver
 
 class ChassisNode(Node):
     def __init__(self):
-        super().__init__('chassis_driver_node')
+        super().__init__('chassis_node')
         
         # Parameters
         self.declare_parameter('base_frame', 'base_link')
@@ -40,21 +28,20 @@ class ChassisNode(Node):
         # Initialize Chassis Driver
         try:
             self.driver = ChassisDriver()
-            logger.info("Chassis Driver Initialized Successfully")
+            self.get_logger().info("Chassis Driver Initialized Successfully")
         except Exception as e:
-            logger.error(f"Failed to initialize Chassis Driver: {e}")
-            self.destroy_node()
-            return
+            self.get_logger().error(f"Failed to initialize Chassis Driver: {e}")
+            raise e
 
         # Publishers & Subscribers
         self.cmd_sub = self.create_subscription(
             Twist,
-            'cmd_vel',
+            '~/cmd_vel',
             self.cmd_vel_callback,
             10
         )
         
-        self.odom_pub = self.create_publisher(Odometry, 'wheel/odom', 10)
+        self.odom_pub = self.create_publisher(Odometry, '~/odom', 10)
         self.tf_broadcaster = TransformBroadcaster(self)
         
         # Odometry State
@@ -66,14 +53,13 @@ class ChassisNode(Node):
         # Timer for Odom Loop
         self.create_timer(1.0 / self.rate, self.update_odom)
         
-        logger.info("Chassis Node Started")
+        self.get_logger().info("Chassis Node Started")
 
     def cmd_vel_callback(self, msg: Twist):
         linear_x = msg.linear.x
         angular_z = msg.angular.z
         
         # Send to driver
-        # Note: driver handles kinematics conversion to RPM
         self.driver.set_twist(linear_x, angular_z)
 
     def update_odom(self):
