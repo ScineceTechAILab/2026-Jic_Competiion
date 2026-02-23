@@ -18,8 +18,15 @@ from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 from rcl_interfaces.msg import ParameterDescriptor, SetParametersResult
 
+try:
+    from rplidar import RPLidar, RPLidarException
+except ImportError:
+    RPLidar = None
+    class RPLidarException(Exception):
+        pass
+
 # 使用标准的包导入方式
-from support.driver.lidar_driver import LDS50CDriver
+from src.support.driver.lidar_driver import LDS50CDriver
 
 # Project Root for config loading
 PROJECT_ROOT = Path(__file__).parents[4]
@@ -220,7 +227,7 @@ class LidarNode(Node):
     def main_loop(self):
         retry_delay = 1.0
         while self.running and rclpy.ok():
-            if self.use_mock or RPLidar is None:
+            if self.use_mock or RPLidar is None: # TODO: repair "RPLidar" is not defined
                 self.mock_scan_loop()
                 continue
 
