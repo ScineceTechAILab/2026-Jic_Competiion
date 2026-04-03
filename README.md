@@ -1,5 +1,5 @@
 
-<b><center><h1>EEG&MR 人机控制范式下的协作 AGV 系统</h1></center></b>
+<h1><b><center>EEG&MR 人机控制范式下的协作 AGV 系统</center></b></h1>
 
 > 🚀 基于地瓜机器人 RDK 的模块化移动操作臂系统，融合视觉感知、自主导航与跨模态交互技术。
 
