@@ -24,7 +24,7 @@ while true; do
         sleep $INTERVAL
         continue
     fi
-
+    
     # Comparison using awk (returns 1 if true, 0 if false)
     IS_HOT=$(echo "$CURRENT_TEMP $THRESHOLD" | awk '{if ($1 > $2) print 1; else print 0}')
 
