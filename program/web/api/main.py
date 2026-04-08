@@ -17,7 +17,7 @@ from program.src.support.driver.chassis_driver import ChassisDriver
 from program.src.support.driver.imu_driver import IMUDriver
 from program.src.support.driver.lidar_driver import LidarDriver
 from program.src.support.driver.camera_driver import CameraDriver
-from program.src.support.loger import get_logger
+from program.src.support.logger import get_logger
 
 logger = get_logger("web_api")
 
