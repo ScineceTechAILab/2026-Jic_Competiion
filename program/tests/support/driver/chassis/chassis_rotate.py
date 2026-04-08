@@ -20,7 +20,7 @@ import importlib
 import yaml
 from pathlib import Path
 
-from program.src.support.log import get_logger
+from program.src.support.loger import get_logger
 from program.src.support.driver.chassis_driver import ChassisDriver
 
 # Add project root to sys.path

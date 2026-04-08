@@ -24,7 +24,7 @@ from smbus2 import SMBus
 # Add project root to sys.path
 sys.path.insert(0, str(Path(__file__).parents[2]))
 
-from program.src.support.log import get_logger
+from program.src.support.loger import get_logger
 
 logger = get_logger(__name__)
 

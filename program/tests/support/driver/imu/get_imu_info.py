@@ -22,7 +22,7 @@ if __name__ == "__main__":
     
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
     from program.src.support.driver.imu_driver import IMUDriver
-    from program.src.support.log import get_logger
+    from program.src.support.loger import get_logger
 
     logger = get_logger(__name__)
 

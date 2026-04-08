@@ -1,7 +1,7 @@
 import cv2
 import threading
 import time
-from program.src.support.log import get_logger
+from program.src.support.loger import get_logger
 
 logger = get_logger("camera_driver")
 

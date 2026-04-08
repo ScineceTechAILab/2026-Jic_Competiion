@@ -1,7 +1,7 @@
 import time
 import adafruit_bno055
 from adafruit_extended_bus import ExtendedI2C as I2C
-from program.src.support.log import get_logger
+from program.src.support.loger import get_logger
 from program.src.support.config_loader import load_imu_config
 
 logger = get_logger(__name__)

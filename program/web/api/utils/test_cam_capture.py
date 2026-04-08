@@ -7,7 +7,7 @@ from program.src.support.driver.camera_driver import CameraDriver
 import cv2
 
 def test_camera():
-    from program.src.support.log import logger
+    from program.src.support.loger import logger
     logger.debug("Initializing CameraDriver...")
     cam = CameraDriver()
     
