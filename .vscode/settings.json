@@ -3,6 +3,5 @@
         "tests"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "markdown.validate.enabled": true
+    "python.testing.pytestEnabled": true
 }

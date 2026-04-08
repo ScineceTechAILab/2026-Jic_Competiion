@@ -1,0 +1,22 @@
+
+# Serial connection settings
+port: /dev/ttyS1
+baudrate: 500000
+
+# Lidar type and frame configuration
+lidar_type: LDS-50C
+frame_id: laser_frame
+
+# Data processing settings
+inverted: false
+angle_compensate: true
+scan_mode: Standard
+channel_type: serial
+
+# Angle masking (degrees, 0-360)
+# If start == end, no mask is applied
+mask_angle_start: 0.0
+mask_angle_end: 0.0
+
+# Debug/Development settings
+use_mock: false
