@@ -1,283 +1,261 @@
-# SYNAPSE 
+<h1><b><center>AGENT AGV — BCI × 具身智能 × MR 四层闭环系统</center></b></h1>
 
-> 🚀 基于地瓜机器人 RDK 的模块化移动操作臂系统，融合视觉感知、自主导航与跨模态交互技术。
+> 基于地瓜机器人 RDK X5 的模块化移动操作臂系统，融合脑机接口（BCI）、具身智能、混合现实（MR）空间反馈，构建"意图接入 → Agent 调度 → 具身执行 → MR 反馈"四层认知-执行闭合回路。
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Hardware-RDK_X5-orange?style=flat-square" />
-  <img src="https://img.shields.io/badge/Robot-AGV_Manipulator-blue?style=flat-square" />
-  <img src="https://img.shields.io/badge/ROS-2-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Platform-RDK_X5-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/Architecture-Four--Layer_Closed--Loop-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/ROS-2_Humble-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/MR-Meta_Quest_3-purple?style=flat-square" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" />
 </p>
 
----
+------
 
-## 📖 目录
+## 目录
 
-* [✨ 项目背景与简介](#-项目背景与简介)
-* [🌟 核心方向与创新](#-核心方向与创新)
-* [🛠 硬件与技术栈](#-硬件与技术栈)
-* [� 项目规划与路线图](#-项目规划与路线图)
-* [🧩 软件架构](#-软件架构)
-* [� 安装与使用](#-安装与使用)
-* [🤝 贡献](#-贡献)
+- [项目概述](#项目概述)
+- [四层闭环架构](#四层闭环架构)
+- [核心创新](#核心创新)
+- [硬件平台](#硬件平台)
+- [软件技术栈](#软件技术栈)
+- [当前进度](#当前进度)
+- [工程路线图](#工程路线图)
+- [通信接口](#通信接口)
+- [快速开始](#快速开始)
+- [仓库结构](#仓库结构)
 
----
+------
 
-## ✨ 项目背景与简介
+## 项目概述
 
-本项目旨在研发一套**模块化 AGV 底盘移动操作臂系统（Mobile Manipulator System）**。
+本项目为本科毕业设计，旨在构建一套完整的 **"BCI × 具身智能 × MR"四层闭环移动操作臂原型系统**。
 
-核心理念是将机械臂视作通用的“操作单元”，实现其在不同移动平台上的快速接入与协同联动。在此基础上，进一步引入**跨模态交互方式（BCI / MR / 语义控制）**，探索人机协同的差异化创新应用。
+与传统"BCI 触发机器人"方案不同，本系统的核心命题在于：将操作者的脑电意图、智能体任务调度、具身机器人执行、混合现实空间反馈四个环节串联成一个完整的 **认知-执行闭环**，使人成为回路中的有效调节环节。
 
-通俗来讲，即实现给拥有机械臂的小车赋予人工智能，使其能根据自然语言指令执行抓取和运输任务，进阶目标为实现多平台协同转运物品。
+**闭环运行流程：** 操作者通过 MR 眼镜感知机器人状态与路径预览 → 调整注意力集中程度 → BCI 捕获专注度变化并触发指令 → Agent 调度分解任务 → 机器人执行导航与抓取 → 传感器数据回传至 MR 渲染 → 循环。
 
-### 🎯 项目意义
-*   **推动智能化服务落地**：解决物流、医疗、家庭服务等场景的劳动力不足问题。
-*   **降低应用门槛**：模块化设计降低研发成本，促进普及。
-*   **增强社会包容性**：为老年人、残障人士提供日常抓取和搬运帮助。
-*   **助力教育**：作为教学平台，帮助学生实践机器人系统核心技术。
+------
 
----
-
-## 🌟 核心方向与创新
-
-与传统单一平台的视觉导航小车或固定机械臂不同，本方案强调 **模块化 + 可扩展性**：
-
-1.  **� 模块化设计**
-    *   机械臂具备标准化接口。
-    *   末端执行器（夹爪、吸盘等）支持快换。
-    *   电路部分支持自动识别末端模块。
-
-2.  **� 跨平台接入**
-    *   操作臂可接入不同移动底盘（如轮式小车、AGV 或桌面实验平台）。
-    *   实现“换平台/换任务”的快速切换。
-
-3.  **🧠 跨模态交互**
-    *   用户通过 **脑机接口 (BCI)** 或 **混合现实 (MR)** 眼镜发出指令。
-    *   MR 提供空间增强反馈，实现更自然的人机交互。
-
-## 📁 项目目录约定
-
-建议将仓库分为五个主要区域：
-
-- `src/`：ROS 2 与业务代码。
-- `hardware/`：机械与电气设计文件。
-- `docs/design/`：设计规范、阶段记录、选型文档和评审材料。
-- `config/`：运行参数和系统配置。
-- `assets/`：图片、示意图、渲染图、演示素材。
-
-### 设计文件区
-
-- `hardware/mechanical/机械区/`：机械设计知识、阶段记录、索引与归档。
-- `hardware/electrical/电路区/`：电路设计知识、阶段记录、索引与归档。
-- `docs/程序区/`：软件架构、接口协议、调试记录与归档。
-- `hardware/mechanical/`：机械设计源文件、导出件、BOM、装配与测试。
-- `hardware/electrical/`：电气设计源文件、导出件、BOM、Gerber、接线与测试。
-
-### 文件管理原则
-
-1. 源文件和导出文件分离。
-2. 评审材料和最终归档分离。
-3. 每个专业区保留一个索引文件，统一入口。
-4. 设计文档尽量只放在 `docs/design/`，不要散落到代码目录里。
-
----
-
-## 🛠 硬件与技术栈
-
-### 硬件平台
-*   **核心计算单元**：地瓜机器人 RDK X5 / RDK X3
-*   **移动底盘**：自主研发或开源 AGV 底盘
-*   **机械臂**：2~3 自由度轻量级机械臂
-*   **传感器**：摄像头 (视觉感知)、激光雷达 (LDS-50C / RPLidar)、编码器
-
-### 技术栈
-*   **操作系统**：Ubuntu 22.04
-*   **中间件**：ROS 2 (Robot Operating System)
-*   **算法**：
-    *   **SLAM & 导航**：Nav2, Cartographer / AMCL
-    *   **视觉感知**：YOLO-tiny / MobileNet (目标检测), OpenCV (图像处理)
-    *   **运动控制**：PID 控制, 逆运动学 (IK)
-*   **交互**：Unity (MR开发), BCI SDK
-
----
-
-## � 项目规划与路线图
-
-项目分为两个核心阶段：**核心 Demo (80%)** 和 **创新探索 (20%)**。
-
-### 📌 阶段 1：移动平台路径规划 (3周)
-
-#### 线性规划
-
-- [x] 编写验证底盘驱动的代码。
-    - [x] 底盘的定性基本运动形式代码编写验证
-    - [x] 底盘的定量基本运动形式代码编写验证
-        - [x] IMU 驱动代码的编写验证
-        - [x] 里程计代码的编写验证
-        - [x] web 测试网页
-    - [x] 底盘测试代码(基于IMU和里程计双校验)
-- [x] 底盘运动学建模与驱动控制验证。
-- [ ] 调研并验证适合双目视觉+LiDAR+IMU融合的 SLAM 方案 (如 RTAB-Map, LVI-SAM)。
-- [ ] 初步配置 Nav2 导航栈以对接 SLAM。
-- [ ] 激光雷达/视觉简易避障。
-- **输出**：底盘可从起点自主移动到目标区域并构建环境地图。
-
-#### 反馈规划
-
-- [ ] 重新校验现有实现和原有架构设计
-
-### 📌 阶段 2：机械臂操纵 (3周)
-
-#### 线性规划
-
-- [ ] 搭建 MCU 与 RDK 的通讯接口 (CAN/UART)。
-- [ ] 完成关节 PID 控制和角度反馈验证。
-- [ ] 简单运动测试 (预设动作)。
-- **输出**：机械臂可接受指令并完成重复性动作。
-
-#### 反馈规划
-
-- [ ] 重新校验现有实现和原有架构设计
-
-### 📌 阶段 3：机械臂视觉抓取 (4周)
-- [ ] 接入摄像头 + 感知模块 (OpenCV/轻量 AI)。
-- [ ] 完成像素坐标 → 机械臂坐标系的标定。
-- [ ] 实现简单目标检测 (颜色/形状)。
-- [ ] 机械臂执行抓取 (吸盘/夹爪)。
-- **输出**：能够识别并抓取静态桌面上的目标。
-
-### � 阶段 4：机械臂 + 移动平台协作搬运 (3周)
-- [ ] 将视觉抓取与路径规划集成。
-- [ ] 流程：底盘移动到目标点 → 机械臂抓取 → 底盘运送 → 机械臂放置。
-- [ ] 定义任务管理器的流程控制。
-- **输出**：系统可完成搬运流程的 Demo (单一物体搬运)。
-
-### 📌 阶段 5：机械臂接口模块化 (2周)
-- [ ] 设计模块 ID 电路 (电阻 ID / 插针检测)。
-- [ ] MCU 实现自动识别与参数上报。
-- [ ] RDK 任务管理器自动切换抓取策略。
-- **输出**：可在不改代码的情况下更换夹爪/吸盘等末端模块。
-
-### 📌 阶段 6：机械臂操作多模态化 (3周，扩展)
-- [ ] 接入 MR 眼镜 (Unity/SDK) 与 HRI 接口。
-- [ ] 接入 BCI 信号或语义解析 SDK。
-- [ ] 定义多模态输入与任务映射规则。
-- **输出**：可通过 MR/BCI/语音等方式下达任务指令。
-
----
-
-## 🧩 软件架构
-
-```mermaid
-graph TD
-    User[用户 (MR/BCI/语音)] -->|指令| RDK[RDK 主控]
-    
-    subgraph "RDK 主控 (ROS 2)"
-        Task[任务管理器]
-        SLAM[SLAM (RTAB-Map/Cartographer)]
-        Nav[导航与规划 (Nav2)]
-        Vision[视觉感知 (YOLO/OpenCV)]
-        ArmCtrl[机械臂控制]
-        BaseCtrl[底盘控制]
-    end
-    
-    RDK -->|CAN/UART| MCU[底层 MCU]
-    
-    subgraph "硬件执行"
-        MCU --> Motor_Base[底盘电机]
-        MCU --> Motor_Arm[机械臂舵机]
-        MCU --> End_Effector[末端执行器 (可换)]
-    end
-    
-    Camera -->|图像流| Vision
-    Camera -->|双目/深度| SLAM
-    Lidar -->|2D 扫描| SLAM
-    IMU -->|惯导数据| SLAM
-    
-    SLAM -->|定位/地图| Nav
-    
-    Task --> Nav
-    Task --> Vision
-    Task --> ArmCtrl
-    
-    Nav --> BaseCtrl
-```
-
----
-
-## 📦 安装与使用
-
-在开始前，请确保是你的 RDK X5环境满足以下条件
+## 四层闭环架构
 
 ```
-
+【L1 意图接入层】 BCI / EEG → 专注度阈值 → START 指令
+        ↓ START
+【L2 Agent 调度层】 任务状态机 → 任务分解 → cmd_vel / 臂控指令
+        ↓ cmd_vel
+【L3 具身执行层】 Nav + 机械臂 + 视觉 → 抓取搬运 → Sensor data
+        ↓ Sensor data
+【L4 MR 反馈层】  Meta Quest 3 → 路径预览 + 任务状态 HUD → Visual feedback → L1
 ```
 
+| 层级 | 名称           | 核心功能                                     | 关键技术                                  |
+| ---- | -------------- | -------------------------------------------- | ----------------------------------------- |
+| L1   | BCI 意图接入层 | EEG 专注度采集，阈值触发 START/PAUSE/ABORT   | 非侵入式 EEG、Python SDK                  |
+| L2   | Agent 调度层   | 任务分解、状态机管理、行为树、异常处理       | ROS2 Action/Service                       |
+| L3   | 具身执行层     | 底盘导航、机械臂控制、视觉感知、末端模块驱动 | Nav2、MoveIt2、YOLO-tiny                  |
+| L4   | MR 空间反馈层  | 接收传感器数据，渲染路径/状态 AR 叠加层      | Meta Quest 3、Unity SDK、WebSocket Bridge |
 
+------
 
-### 1. 克隆仓库
+## 核心创新
+
+**四层认知-执行闭环（核心创新）：** MR 反馈层的输出作为操作者认知系统的输入，影响其注意力状态，进而通过 BCI 形成下一轮控制信号——将系统从"开环触发"升级为"闭环协同"。
+
+**EEG 阈值触发的工程化决策：** 有意选择连续专注度阈值触发（≥70/100 持续 2 秒）而非离散 EEG 分类，从架构层面规避个体差异导致的分类器泛化失败，保证跨用户稳定性。键盘保留为备用触发方式。
+
+**模块化末端自动识别：** 末端执行器通过电阻 ID 电路自动识别类型（夹爪/吸盘），Agent 层无需手动配置即可切换抓取策略。
+
+**分层可调试工程架构：** 从驱动层即建立 Web 调试面板与独立测试脚本，每层模块可独立验证，降低单人开发的集成风险。
+
+------
+
+## 硬件平台
+
+| 模块       | 型号 / 参数                                                  | 当前状态                        |
+| ---------- | ------------------------------------------------------------ | ------------------------------- |
+| 主控计算机 | RDK X5（地瓜机器人），Ubuntu + ROS2                          | ✅ 已到位                        |
+| 底盘驱动   | I2C 4 路电机板，Bus 5，地址 0x26，轮距 160mm，轮径 65mm，减速比 30 | ✅ 已调通                        |
+| IMU        | BNO055，I2C Bus 5，地址 0x29，四元数 + 角速度 + 加速度       | ✅ 已调通                        |
+| 激光雷达   | RPLIDAR S1，串口 /dev/ttyS1，波特率 256000                   | ✅ 串口验证通过，ROS2 驱动待封装 |
+| 摄像头     | USB 摄像头，/dev/video0，640×480，MJPEG                      | ✅ 已调通                        |
+| 机械臂     | 待确认型号                                                   | ⏳ 待接入                        |
+| 末端执行器 | 夹爪 / 吸盘（快换接口 + 电阻 ID 识别）                       | ⏳ 规划中                        |
+| MR 眼镜    | Meta Quest 3（视频透传 MR，OpenXR / Unity XR Toolkit）       | ⏳ 待采购                        |
+| EEG 设备   | NeuroSky MindWave / Emotiv Insight                           | ⏳ 后期接入                      |
+
+------
+
+## 软件技术栈
+
+| 类别         | 技术 / 框架                                   | 状态          |
+| ------------ | --------------------------------------------- | ------------- |
+| 底层驱动     | smbus2 / adafruit-bno055                      | 已在用        |
+| Web 调试     | FastAPI + uvicorn + SPA 前端                  | 已在用        |
+| 视觉库       | OpenCV                                        | 已引入        |
+| 机器人中间件 | ROS2 Humble（Topic / Action / Service / TF2） | 待配置        |
+| 导航建图     | SLAM Toolbox + Nav2（A* + DWA）               | 待接入        |
+| 操作臂控制   | MoveIt2 / 自定义 IK（依型号确定）             | 待定          |
+| 目标检测     | YOLO-tiny / MobileNetV3                       | 待实现        |
+| MR 开发      | Unity + Meta Quest 3 SDK + WebSocket Bridge   | 待接入        |
+| BCI SDK      | NeuroSky / Emotiv Python SDK                  | 待接入        |
+| 开发语言     | Python 3.10 + C++17 + C#（Unity）             | Python 已在用 |
+
+------
+
+## 当前进度
+
+### 已完成模块
+
+| 模块         | 路径                                                       | 说明                                                      |
+| ------------ | ---------------------------------------------------------- | --------------------------------------------------------- |
+| 底盘驱动     | `src/support/driver/chassis_driver.py`                     | 差速运动学、I2C 通信、编码器反馈、速度修正                |
+| IMU 驱动     | `src/support/driver/imu_driver.py`                         | BNO055 四元数 + 角速度 + 加速度                           |
+| 摄像头驱动   | `src/support/driver/camera_driver.py`                      | USB 摄像头 JPEG 流                                        |
+| 激光雷达串口 | `tests/lidar/lidar_connect.py`                             | RPLIDAR S1 串口连接测试通过                               |
+| 配置加载     | `src/support/config_loader.py`                             | YAML 配置加载                                             |
+| 日志系统     | `src/support/log/log.py`                                   | RotatingFileHandler + 控制台双输出                        |
+| Web 调试面板 | `web/api/main.py` + `web/public/`                          | FastAPI 后端 + SPA 前端（底盘控制 / IMU / 雷达 / 摄像头） |
+| 底盘测试脚本 | `tests/chassis/`                                           | 单电机、旋转、平移测试                                    |
+| 分层架构     | `src/{support,execution,functional,decision,application}/` | 五层目录结构 + 接口文件                                   |
+
+### 待实现模块
+
+| 模块               | 路径                                                  | 对应里程碑 |
+| ------------------ | ----------------------------------------------------- | ---------- |
+| URDF 建模          | `src/support/simulation/`                             | M0         |
+| 激光雷达 ROS2 驱动 | `src/functional/slam_module/`                         | M0         |
+| SLAM 建图          | `src/functional/slam_module/`                         | M1         |
+| 路径规划           | `src/decision/path_planning/`                         | M1         |
+| 机械臂控制         | `src/execution/arm_control/`                          | M2         |
+| 视觉感知           | `src/functional/visual_perception/`                   | M3         |
+| 行为树             | `src/decision/behavior_tree/`                         | M4         |
+| 任务调度           | `src/application/task_planner/`                       | M4         |
+| BCI 接入           | `src/application/bci_mr_interaction/bci_interface.py` | M5         |
+| MR 反馈层          | `src/application/bci_mr_interaction/mr_interface.py`  | M6         |
+
+------
+
+## 工程路线图
+
+12 个月周期，MVP 渐进式推进，7 个里程碑（M0–M6）。
+
+| 里程碑                      | 时间节点   | 验收标准                                             | 优先级 |
+| --------------------------- | ---------- | ---------------------------------------------------- | ------ |
+| **M0** URDF + ROS2 底盘节点 | 第 2 周末  | URDF 在 RViz 正常显示，/odom 与 /scan 话题正常发布   | P0     |
+| **M1** SLAM + 自主导航      | 第 6 周末  | 室内自主建图，Nav2 点到点导航成功，避障有效          | P0     |
+| **M2** 机械臂基础控制       | 第 11 周末 | 机械臂完成预设动作，手眼标定完成，末端模块可自动识别 | P0     |
+| **M3** 视觉抓取             | 第 16 周末 | 静态目标识别并抓取，成功率 ≥ 70%                     | P0     |
+| **M4** 搬运全流程 Demo      | 第 24 周末 | 完整搬运流程（手动触发），成功率 ≥ 80%，耗时 < 3 min | P0     |
+| **M5** 四层闭环联调         | 第 36 周末 | BCI 触发 + MR 实时反馈，端到端成功率 ≥ 70%           | P1     |
+| **M6** 最终演示就绪         | 第 48 周末 | 系统稳定演示，Demo 视频完成，文档整理完毕            | P1     |
+| ✅ 底盘驱动                  | 已完成     | ChassisDriver 完整实现，Web 面板可控                 | P0     |
+| ✅ 传感器驱动                | 已完成     | IMU / 摄像头已调通，雷达串口验证通过                 | P0     |
+
+> M4（搬运 Demo，手动触发）本身已是具备完整展示价值的成果。M5 四层闭环 Demo 是项目最大亮点与差异化所在。
+
+------
+
+## 通信接口
+
+### 已实现接口（FastAPI REST，调试用）
+
+| 接口                     | 方向          | 说明                                             |
+| ------------------------ | ------------- | ------------------------------------------------ |
+| `POST /api/control`      | 外部 → 底盘   | move_forward / backward / rotate_cw / ccw / stop |
+| `GET /api/battery`       | 底盘 → 前端   | 电池电压（V）                                    |
+| `GET /api/chassis/speed` | 底盘 → 前端   | 左右轮实时速度（m/s）                            |
+| `GET /api/imu`           | IMU → 前端    | 四元数、角速度、加速度                           |
+| `GET /api/lidar`         | 雷达 → 前端   | 激光扫描数据（当前为 Mock）                      |
+| `GET /api/camera/stream` | 摄像头 → 前端 | MJPEG 视频流                                     |
+
+### 规划接口（ROS2，正式集成）
+
+| Topic                  | 方向              | 类型        | 说明                         |
+| ---------------------- | ----------------- | ----------- | ---------------------------- |
+| `/bci/attention_state` | BCI → Agent       | Float32     | 专注度 0–100，10Hz           |
+| `/bci/task_trigger`    | BCI → Agent       | String      | START / PAUSE / ABORT        |
+| `/cmd_vel`             | Agent → 底盘      | Twist       | 线速度 + 角速度              |
+| `/odom`                | 底盘 → Agent / MR | Odometry    | 里程计位姿                   |
+| `/scan`                | 雷达 → Nav2       | LaserScan   | 激光扫描数据                 |
+| `/vision/target_pose`  | 视觉 → Agent      | PoseStamped | 目标物位姿                   |
+| `/arm/joint_states`    | 臂 → Agent        | JointState  | 关节角度反馈                 |
+| `/mr/robot_state`      | Agent → MR        | WebSocket   | 机器人位姿 + 任务状态 + 路径 |
+
+------
+
+## 快速开始
+
+### 克隆仓库
+
 ```bash
-git clone https://github.com/YourTeam/ai-agv-manipulator.git
-cd ai-agv-manipulator
+git clone https://github.com/ScineceTechAILab/2026-Jic_Competition.git
+cd 2026-Jic_Competition
 ```
 
-### 2. 安装依赖
-```bash
-# 安装 ROS 2 依赖
-rosdep install --from-paths src --ignore-src -r -y
+### 安装 Python 依赖
 
-# 安装 Python 依赖
+```bash
 pip3 install -r requirements.txt
 ```
 
-### 3. 编译工作空间
-```bash
-# 使用提供的构建脚本（自动指定输出目录为 cache/）
-chmod +x build.sh
-./build.sh
+### 硬件验证（已完成模块）
 
-# Source 环境变量
-source cache/install/setup.bash
+```bash
+# 底盘单电机测试
+python3 tests/chassis/test_single_motor.py
+
+# 底盘旋转测试
+python3 tests/chassis/test_rotate.py
+
+# 底盘平移测试
+python3 tests/chassis/test_translate.py
+
+# 激光雷达串口连接测试
+python3 tests/lidar/lidar_connect.py
+
+# 启动 Web 调试面板（底盘控制 / IMU / 雷达 / 摄像头）
+cd web && uvicorn api.main:app --host 0.0.0.0 --port 8000
 ```
 
-> **注意**: 为保持项目根目录整洁，所有构建产物（build, install, log）均存放在 `cache/` 目录下。
+> ROS2 节点封装、SLAM 建图、Nav2 导航等功能尚在开发中，对应的 `ros2 launch` 命令将在各里程碑完成后补充。
 
-### 4. 运行
-```bash
-# 启动底盘驱动
-ros2 launch chassis_driver chassis.launch.py
+------
 
-# 启动导航
-ros2 launch nav2_bringup navigation_launch.py
+## 仓库结构
 
-# 启动任务演示
-ros2 run task_manager demo_mission
+```
+2026-Jic_Competition/
+├── src/
+│   ├── support/           # 支撑层：驱动、配置、日志、仿真
+│   │   ├── driver/        #   chassis_driver / imu_driver / camera_driver
+│   │   ├── config_loader.py
+│   │   ├── log/
+│   │   └── simulation/    #   URDF（待完成）
+│   ├── execution/         # 执行层：底盘运动、机械臂控制
+│   │   └── arm_control/
+│   ├── functional/        # 功能层：SLAM、视觉感知、避障
+│   │   ├── slam_module/
+│   │   └── visual_perception/
+│   ├── decision/          # 决策层：路径规划、行为树
+│   │   ├── path_planning/
+│   │   └── behavior_tree/
+│   └── application/       # 应用层：任务调度、BCI/MR 交互
+│       ├── task_planner/
+│       └── bci_mr_interaction/
+├── config/                # YAML 配置文件（底盘参数、IMU 参数等）
+├── tests/                 # 硬件测试脚本
+│   ├── chassis/
+│   ├── lidar/
+│   └── camera/
+├── web/                   # Web 调试面板（FastAPI + SPA）
+│   ├── api/
+│   └── public/
+└── README.md
 ```
 
----
+------
 
-## 🤝 贡献
-
-欢迎参与本项目！
-
-### 👥 团队分工
-
-*   **Team Leader (统筹与集成)**: 负责系统调度、进度管理与集成冲刺。
-*   **算法开发 (Algorithm)**:
-    *   **B 成员**: 负责视觉检测（YOLO-tiny/MobileNet）与目标识别。
-    *   **C 成员**: 负责坐标系标定、路径规划与 SLAM。
-*   **硬件开发 (Hardware)**:
-    *   **A/B 成员**: 负责电路设计（驱动板、电源干扰处理、模块识别电路）。
-    *   **D 成员**: 负责机械设计（机械臂、底盘结构、3D 打印）。
-
-### 📄 文档管理
-
-*   **开发日记 (`docs/diary/`)**: 记录每日开发进度、Bug 修复与调试心得。
-*   **技术日志 (`docs/dev_logs/`)**: 沉淀技术方案、SOP (标准作业程序) 与核心算法原理。
-
----
-
-## 📄 许可证
+## 许可证
 
 本项目采用 [MIT License](LICENSE) 许可证。
