@@ -7,21 +7,13 @@ relative to the project root.
 
 """
 
-
-
-
 import yaml
 from pathlib import Path
-from program.src.support.log import get_logger
 
+from program.src.support.log import get_logger
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 logger = get_logger(__name__)
 
-# Calculate PROJECT_ROOT. 
-# This file is in src/support/config_loader.py
-# parents[0] = src/support
-# parents[1] = src
-# parents[2] = jic_competiion (Project Root)
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 def load_config(config_file_name: str) -> dict:
     """

@@ -10,6 +10,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+# Add project root to sys.path
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
 from program.src.support.driver.chassis_driver import ChassisDriver
 from program.src.support.driver.imu_driver import IMUDriver
 from program.src.support.driver.lidar_driver import LidarDriver
@@ -29,8 +32,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Add project root to sys.path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
 CONFIG_PATH = PROJECT_ROOT / 'config/chasis_params.yaml'
 driver = None
 imu_driver = None
