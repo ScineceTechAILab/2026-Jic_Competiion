@@ -2,6 +2,7 @@ import os
 import yaml
 import time
 import threading
+import math
 
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Body
@@ -125,7 +126,16 @@ class RosLidarBridge:
         logger.info(f"Subscribed to LiDAR topic: {self.topic_name}")
 
     def _on_scan(self, msg):
-        ranges = [float(value) if value is not None else float('inf') for value in msg.ranges]
+        # JSON does not support NaN/Infinity, so convert invalid ranges to null.
+        ranges = []
+        for value in msg.ranges:
+            if value is None:
+                ranges.append(None)
+                continue
+
+            f_value = float(value)
+            ranges.append(f_value if math.isfinite(f_value) else None)
+
         intensities = [float(value) for value in msg.intensities] if msg.intensities else []
         stamp = msg.header.stamp
         timestamp = float(stamp.sec) + float(stamp.nanosec) / 1_000_000_000.0
