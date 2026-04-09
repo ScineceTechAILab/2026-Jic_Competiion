@@ -88,7 +88,7 @@ class LidarNode(Node):
         }
         
         # --- Load from YAML config file ---
-        config_path = PROJECT_ROOT / 'config' / 'lidar_params.yaml'
+        config_path = PROJECT_ROOT /'config' / 'lidar_params.yaml'
         if config_path.exists():
             try:
                 with open(config_path, 'r') as f:

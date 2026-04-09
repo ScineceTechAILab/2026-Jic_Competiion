@@ -1,7 +1,7 @@
-import sys
 import os
 import yaml
 import time
+import threading
 
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Body
@@ -10,14 +10,27 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
-# Add project root to sys.path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+from program.src.support.logger import get_logger
+
+try:
+    import rclpy
+    from rclpy.node import Node
+    from rclpy.qos import qos_profile_sensor_data
+    from sensor_msgs.msg import LaserScan
+    ROS_AVAILABLE = True
+except Exception:
+    rclpy = None
+    Node = object
+    qos_profile_sensor_data = None
+    LaserScan = None
+    ROS_AVAILABLE = False
 
 from program.src.support.driver.chassis_driver import ChassisDriver
 from program.src.support.driver.imu_driver import IMUDriver
-from program.src.support.driver.lidar_driver import LidarDriver
 from program.src.support.driver.camera_driver import CameraDriver
-from program.src.support.logger import get_logger
+
+# Add project root to sys.path
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 logger = get_logger("web_api")
 
@@ -36,8 +49,8 @@ app.add_middleware(
 CONFIG_PATH = PROJECT_ROOT / 'config/chasis_params.yaml'
 driver = None
 imu_driver = None
-lidar_driver = None
 camera_driver = None
+lidar_bridge = None
 
 def get_driver():
     global driver
@@ -57,15 +70,6 @@ def get_imu_driver():
             logger.error(f"Failed to initialize IMU driver: {e}")
     return imu_driver
 
-def get_lidar_driver():
-    global lidar_driver
-    if lidar_driver is None:
-        try:
-            lidar_driver = LidarDriver()
-        except Exception as e:
-            logger.error(f"Failed to initialize LiDAR driver: {e}")
-    return lidar_driver
-
 def get_camera_driver():
     global camera_driver
     if camera_driver is None:
@@ -83,6 +87,92 @@ class ControlCommand(BaseModel):
     action: str  # "rotate_cw", "rotate_ccw", "stop"
     linear_speed: float = 0.5
     angular_speed: float = 1.5
+
+
+class RosLidarBridge:
+    def __init__(self, topic_name: str = "/lidar_node/scan"):
+        self.topic_name = topic_name
+        self._lock = threading.Lock()
+        self._latest_scan = None
+        self._owns_context = False
+        self._node = None
+        self._spin_thread = None
+        self._started = False
+
+        if not ROS_AVAILABLE:
+            logger.error("ROS2 packages are not available in this environment")
+            return
+
+        try:
+            context_ready = rclpy.ok()
+        except Exception:
+            context_ready = False
+
+        if not context_ready:
+            rclpy.init(args=None)
+            self._owns_context = True
+
+        self._node = rclpy.create_node('web_lidar_bridge')
+        self._node.create_subscription(
+            LaserScan,
+            self.topic_name,
+            self._on_scan,
+            qos_profile_sensor_data,
+        )
+        self._spin_thread = threading.Thread(target=rclpy.spin, args=(self._node,), daemon=True)
+        self._spin_thread.start()
+        self._started = True
+        logger.info(f"Subscribed to LiDAR topic: {self.topic_name}")
+
+    def _on_scan(self, msg):
+        ranges = [float(value) if value is not None else float('inf') for value in msg.ranges]
+        intensities = [float(value) for value in msg.intensities] if msg.intensities else []
+        stamp = msg.header.stamp
+        timestamp = float(stamp.sec) + float(stamp.nanosec) / 1_000_000_000.0
+
+        with self._lock:
+            self._latest_scan = {
+                'timestamp': timestamp,
+                'frame_id': msg.header.frame_id,
+                'ranges': ranges,
+                'angle_min': float(msg.angle_min),
+                'angle_max': float(msg.angle_max),
+                'angle_increment': float(msg.angle_increment),
+                'time_increment': float(msg.time_increment),
+                'scan_time': float(msg.scan_time),
+                'range_min': float(msg.range_min),
+                'range_max': float(msg.range_max),
+                'intensities': intensities,
+            }
+
+    def get_scan(self):
+        with self._lock:
+            return dict(self._latest_scan) if self._latest_scan else None
+
+    def close(self):
+        if not self._started:
+            return
+
+        if self._node is not None:
+            try:
+                self._node.destroy_node()
+            except Exception as exc:
+                logger.warning(f"Failed to destroy LiDAR bridge node cleanly: {exc}")
+            self._node = None
+
+        if self._owns_context and ROS_AVAILABLE and rclpy.ok():
+            try:
+                rclpy.shutdown()
+            except Exception as exc:
+                logger.warning(f"Failed to shutdown ROS2 cleanly: {exc}")
+
+
+def get_lidar_bridge():
+    global lidar_bridge
+    if lidar_bridge is None:
+        topic_name = os.getenv('WEB_LIDAR_TOPIC', '/lidar_node/scan')
+        lidar_bridge = RosLidarBridge(topic_name=topic_name)
+    return lidar_bridge
 
 @app.get("/api/config")
 async def get_config():
@@ -193,14 +283,15 @@ async def get_imu_data():
 
 @app.get("/api/lidar")
 async def get_lidar_data():
-    d = get_lidar_driver()
-    if not d:
-        raise HTTPException(status_code=500, detail="LiDAR driver not initialized")
-    try:
-        return d.get_scan()
-    except Exception as e:
-        logger.error(f"Failed to get LiDAR data: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+    bridge = get_lidar_bridge()
+    if not bridge or not ROS_AVAILABLE:
+        raise HTTPException(status_code=503, detail="ROS2 LiDAR bridge is not available")
+
+    scan = bridge.get_scan()
+    if not scan:
+        raise HTTPException(status_code=503, detail="No LiDAR scan received yet")
+
+    return scan
 
 @app.get("/api/camera/stream")
 async def video_feed():
@@ -222,6 +313,14 @@ async def video_feed():
 
 # Mount static files
 app.mount("/", StaticFiles(directory=str(PROJECT_ROOT / "web/public"), html=True), name="static")
+
+
+@app.on_event("shutdown")
+def shutdown_lidar_bridge():
+    global lidar_bridge
+    if lidar_bridge is not None:
+        lidar_bridge.close()
+        lidar_bridge = None
 
 if __name__ == "__main__":
     import uvicorn

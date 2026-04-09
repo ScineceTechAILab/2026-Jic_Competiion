@@ -12,8 +12,13 @@ interface LidarData {
     ranges?: number[];
     angle_min?: number;
     angle_max?: number;
+    angle_increment?: number;
+    time_increment?: number;
+    scan_time?: number;
     range_min?: number;
     range_max?: number;
+    frame_id?: string;
+    timestamp?: number;
 }
 
 class DOMBuilder {
@@ -374,7 +379,7 @@ class App {
                 DOMBuilder.el('div', 'flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500', [
                     DOMBuilder.el('span', 'rounded-full bg-slate-100 px-3 py-1', ['Top-down scan']),
                     DOMBuilder.el('span', 'rounded-full bg-slate-100 px-3 py-1', ['Center = robot']),
-                    DOMBuilder.el('span', 'rounded-full bg-slate-100 px-3 py-1', ['Scale = 1 m / 100 px']),
+                    DOMBuilder.el('span', 'rounded-full bg-slate-100 px-3 py-1', ['Scale = auto-fit']),
                 ]),
                 this.lidarCanvas,
                 this.lidarStateEl,
@@ -743,7 +748,7 @@ class App {
         const height = this.lidarCanvas.height;
         const cx = width / 2;
         const cy = height / 2;
-        const scale = Math.min(width, height) * 0.34;
+        const usableRadius = Math.min(width, height) * 0.42;
 
         ctx.fillStyle = '#020617';
         ctx.fillRect(0, 0, width, height);
@@ -761,10 +766,10 @@ class App {
 
         ctx.strokeStyle = 'rgba(45, 212, 191, 0.22)';
         ctx.beginPath();
-        ctx.arc(cx, cy, scale, 0, Math.PI * 2);
+        ctx.arc(cx, cy, usableRadius, 0, Math.PI * 2);
         ctx.stroke();
         ctx.beginPath();
-        ctx.arc(cx, cy, scale * 0.5, 0, Math.PI * 2);
+        ctx.arc(cx, cy, usableRadius * 0.5, 0, Math.PI * 2);
         ctx.stroke();
 
         ctx.fillStyle = '#ef4444';
@@ -786,9 +791,14 @@ class App {
 
         const angleMin = typeof data?.angle_min === 'number' ? data.angle_min : 0;
         const angleMax = typeof data?.angle_max === 'number' ? data.angle_max : Math.PI * 2;
+        const angleIncrement = typeof data?.angle_increment === 'number'
+            ? data.angle_increment
+            : (ranges.length > 1 ? (angleMax - angleMin) / (ranges.length - 1) : 0);
         const rangeMin = typeof data?.range_min === 'number' ? data.range_min : 0;
         const rangeMax = typeof data?.range_max === 'number' ? data.range_max : 10;
-        const angleIncrement = ranges.length > 1 ? (angleMax - angleMin) / ranges.length : 0;
+        const finiteRanges = ranges.filter((value) => typeof value === 'number' && Number.isFinite(value) && value >= rangeMin && value <= rangeMax);
+        const displayRange = Math.max(rangeMax, finiteRanges.length ? Math.max(...finiteRanges) : rangeMax, 1);
+        const scale = usableRadius / displayRange;
 
         for (let index = 0; index < ranges.length; index += 1) {
             const dist = ranges[index];
@@ -805,7 +815,10 @@ class App {
             ctx.fillRect(x, y, 2.5, 2.5);
         }
 
-        this.lidarStateEl.textContent = `Samples: ${ranges.length} | range: ${rangeMin.toFixed(2)} - ${rangeMax.toFixed(2)} m`;
+        const frameId = typeof data?.frame_id === 'string' && data.frame_id ? data.frame_id : 'unknown';
+        const scanTime = typeof data?.scan_time === 'number' && Number.isFinite(data.scan_time) ? data.scan_time : 0;
+        const hz = scanTime > 0 ? (1 / scanTime).toFixed(1) : '--';
+        this.lidarStateEl.textContent = `frame: ${frameId} | samples: ${ranges.length} | scan: ${hz} Hz | range: ${rangeMin.toFixed(2)} - ${rangeMax.toFixed(2)} m`;
     }
 
     private formatValue(value: unknown, depth = 0): string {
