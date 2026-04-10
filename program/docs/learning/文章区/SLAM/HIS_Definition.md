@@ -100,10 +100,17 @@
 
 ## 三、接口设计（模块间契约）
 
+### 0) 命名约束（按 ROS2 图资源规范 + 项目约定）
+- 统一使用小写 + 下划线：`lidar_node`、`slam_manager_node`、`wheel_odom_raw`。
+- Topic/Service/Action 使用绝对名（`/` 开头）做系统契约，不使用大写与中划线。
+- 节点内部可使用私有名 `~`（如 `~/scan`、`~/odom`、`~/cmd_vel`），但 launch 中必须 remap 到系统契约名（如 `/scan`、`/odom`、`/cmd_vel`）。
+- TF frame_id 不带前导 `/`，使用小写下划线：`map`、`odom`、`base_link`、`laser_frame`。
+- 参数名使用小写下划线：`serial_port`、`serial_baudrate`、`publish_tf`。
+
 ### 1) 输入接口（SLAM前置）
 - `/scan` : `sensor_msgs/LaserScan`（来自雷达驱动）
 - `/imu/data` : `sensor_msgs/Imu`（来自 IMU 驱动）
-- `/wheel/odom_raw` 或内部接口（来自底盘编码器）
+- `/wheel/odom_raw` : `nav_msgs/Odometry`（来自底盘编码器）
 
 ### 2) 中间接口（状态估计）
 - `/odom` : `nav_msgs/Odometry`
@@ -115,9 +122,14 @@
 - `/slam_toolbox/pose`（可选）
 
 ### 4) 服务接口（地图生命周期）
-- `/map/save`（封装 map_saver_cli）
-- `/map/load`（切换到 localization 模式）
+- `/map_server/save_map`（封装 map_saver_cli）
+- `/slam/load_map`（切换到 localization 模式）
 - `/slam/reset`（重置会话）
+
+### 5) 与当前代码实现的映射（避免联调误差）
+- `lidar_node` 当前发布 `~/scan`，上线时 remap 为 `/scan`。
+- `chassis_node` 当前订阅 `~/cmd_vel`、发布 `~/odom`，上线时 remap 为 `/cmd_vel`、`/odom`。
+- 文档中的接口名以绝对名为准，代码内部相对/私有名仅用于节点内聚。
 
 ---
 
@@ -145,9 +157,9 @@ Web/FastAPI 调试接口与 ROS2 Topic 解耦（通过桥接节点）。
 
 必须同时满足以下 4 条链路：
 
-1. `LidarNode -> /scan`
-2. `OdomNode(IMU+Encoder) -> /odom + odom->base_link`
-3. `StaticTF -> base_link->laser_frame`
+1. `lidar_node -> /scan`
+2. `chassis_node(或 odom_node) -> /odom + odom->base_link`
+3. `static_transform_publisher -> base_link->laser_frame`
 4. `slam_toolbox -> /map + map->odom`
 
 只要这四条打通，你就能在 RViz 实时建图并保存地图。
