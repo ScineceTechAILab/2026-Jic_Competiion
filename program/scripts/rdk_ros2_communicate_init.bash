@@ -5,15 +5,13 @@
 
 set -e
 
-ROS_DOMAIN_ID_VALUE="${1:-10}"
-RMW_IMPL_VALUE="${2:-rmw_fastrtps_cpp}"
+ROS_DOMAIN_ID="${1:-10}"
 
 unset ROS_DISCOVERY_SERVER
 unset FASTRTPS_DEFAULT_PROFILES_FILE
 
-export ROS_DOMAIN_ID="$ROS_DOMAIN_ID_VALUE"
+export ROS_DOMAIN_ID="$ROS_DOMAIN_ID"
 export ROS_LOCALHOST_ONLY=0
-export RMW_IMPLEMENTATION="$RMW_IMPL_VALUE"
 
 if command -v ros2 >/dev/null 2>&1; then
     ros2 daemon stop >/dev/null 2>&1 || true
