@@ -8,3 +8,4 @@ cache/
 build/
 install/
 
+.vscode
