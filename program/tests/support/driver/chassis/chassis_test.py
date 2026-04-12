@@ -1,7 +1,6 @@
 import sys
 import os
 import time
-import logging
 
 # Add project root to sys.path
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
@@ -9,10 +8,9 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from program.src.support.driver.chassis_driver import ChassisDriver
 from program.src.support.driver.imu_driver import IMUDriver
+from program.src.support.logger import get_logger
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger("ChassisTest")
+logger = get_logger("ChassisTest")
 
 class ChassisTest:
     def __init__(self):

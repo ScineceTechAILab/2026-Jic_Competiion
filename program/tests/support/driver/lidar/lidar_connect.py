@@ -20,22 +20,18 @@ import sys
 import signal
 import os
 import time
-import logging
 
 # 导入python串口库
 import serial
 import serial.tools.list_ports
 
+from program.src.support.logger import get_logger
+
 
 PORT = "/dev/ttyS1"      # RPLIDAR S1 默认串口
 BAUDRATE = 256000        # RPLidar S1 默认波特率
 
-# 配置日志
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 def signal_handler(signal, frame):
     logger.info("Received SIGINT, exiting...")
@@ -81,7 +77,7 @@ def serialTest(timeout_s: float = 5.0):
                 return 0
             time.sleep(0.1)
 
-        logger.warn("No data received within timeout")
+        logger.warning("No data received within timeout")
         return 2
     
     finally:

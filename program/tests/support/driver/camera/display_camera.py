@@ -65,12 +65,12 @@ class CameraViewer:
         
     def initialize_camera(self):
         """初始化摄像头"""
-        print(f"正在初始化摄像头 (设备索引: {self.camera_index})...")
+        logger.info(f"正在初始化摄像头 (设备索引: {self.camera_index})...")
         
         self.cap = cv2.VideoCapture(self.camera_index, cv2.CAP_V4L2)
         
         if not self.cap.isOpened():
-            print(f"✗ 无法打开摄像头 {self.camera_index}")
+            logger.info(f"✗ 无法打开摄像头 {self.camera_index}")
             return False
 
         selected = None
@@ -80,13 +80,13 @@ class CameraViewer:
                 break
 
         if selected is None:
-            print("✗ 无法协商有效的视频流配置")
+            logger.info("✗ 无法协商有效的视频流配置")
             return False
 
-        print("✓ 摄像头初始化成功")
-        print(f"  编码: {selected['fourcc']}")
-        print(f"  分辨率: {selected['width']} x {selected['height']}")
-        print(f"  帧率: {selected['fps']:.1f} FPS")
+        logger.info("✓ 摄像头初始化成功")
+        logger.info(f"  编码: {selected['fourcc']}")
+        logger.info(f"  分辨率: {selected['width']} x {selected['height']}")
+        logger.info(f"  帧率: {selected['fps']:.1f} FPS")
 
         return True
     
@@ -130,13 +130,13 @@ class CameraViewer:
         self.is_running = True
         frame_count_for_save = 0
         
-        print("\n开始显示摄像头画面...")
-        print("操作说明：")
-        print("  - 按 'q' 键退出")
-        print("  - 按 's' 键保存当前帧")
-        print("  - 按 'r' 键录制视频")
-        print("  - 按 'p' 键暂停/继续")
-        print("\n")
+        logger.info("\n开始显示摄像头画面...")
+        logger.info("操作说明：")
+        logger.info("  - 按 'q' 键退出")
+        logger.info("  - 按 's' 键保存当前帧")
+        logger.info("  - 按 'r' 键录制视频")
+        logger.info("  - 按 'p' 键暂停/继续")
+        logger.info("\n")
         
         is_paused = False
         video_writer = None
@@ -148,7 +148,7 @@ class CameraViewer:
                     ret, frame = self.cap.read()
                     
                     if not ret:
-                        print("✗ 无法读取帧数据")
+                        logger.info("✗ 无法读取帧数据")
                         break
                     
                     # 添加信息文本
@@ -165,7 +165,7 @@ class CameraViewer:
                 key = cv2.waitKey(1) & 0xFF
                 
                 if key == ord('q'):
-                    print("\n收到退出命令...")
+                    logger.info("\n收到退出命令...")
                     self.is_running = False
                     
                 elif key == ord('s'):
@@ -173,7 +173,7 @@ class CameraViewer:
                     filename = f"camera_frame_{frame_count_for_save}_{int(time.time())}.jpg"
                     if ret:
                         cv2.imwrite(filename, frame)
-                        print(f"✓ 已保存帧: {filename}")
+                        logger.info(f"✓ 已保存帧: {filename}")
                 
                 elif key == ord('r'):
                     if not is_recording:
@@ -194,24 +194,24 @@ class CameraViewer:
                             (record_width, record_height),
                         )
                         is_recording = True
-                        print(f"\n▶ 开始录制: {video_filename}")
+                        logger.info(f"\n▶ 开始录制: {video_filename}")
                     else:
                         # 停止录制
                         if video_writer is not None:
                             video_writer.release()
                             video_writer = None
                         is_recording = False
-                        print(f"⏹ 录制已停止")
+                        logger.info(f"⏹ 录制已停止")
                 
                 elif key == ord('p'):
                     is_paused = not is_paused
                     if is_paused:
-                        print("⏸ 视频已暂停")
+                        logger.info("⏸ 视频已暂停")
                     else:
-                        print("▶ 视频已继续")
+                        logger.info("▶ 视频已继续")
                 
         except KeyboardInterrupt:
-            print("\n\n收到中断信号...")
+            logger.info("\n\n收到中断信号...")
             self.is_running = False
         
         finally:
@@ -223,7 +223,7 @@ class CameraViewer:
                 self.cap.release()
             
             cv2.destroyAllWindows()
-            print("✓ 已释放所有资源")
+            logger.info("✓ 已释放所有资源")
 
 
 class MultiCameraViewer:
@@ -239,7 +239,7 @@ class MultiCameraViewer:
     def run_all(self):
         """运行所有摄像头"""
         if not self.viewers:
-            print("没有添加任何摄像头")
+            logger.info("没有添加任何摄像头")
             return
         
         threads = []
@@ -256,9 +256,9 @@ class MultiCameraViewer:
 
 def single_camera_demo():
     """单摄像头演示"""
-    print("\n╔" + "="*58 + "╗")
-    print("║" + " "*15 + "VNC摄像头视频显示 - 单摄像头模式" + " "*10 + "║")
-    print("╚" + "="*58 + "╝\n")
+    logger.info("\n╔" + "="*58 + "╗")
+    logger.info("║" + " "*15 + "VNC摄像头视频显示 - 单摄像头模式" + " "*10 + "║")
+    logger.info("╚" + "="*58 + "╝\n")
     
     viewer = CameraViewer(camera_index=0, window_name="Camera Stream")
     viewer.run()
@@ -266,9 +266,9 @@ def single_camera_demo():
 
 def dual_camera_demo():
     """双摄像头演示（如果有多个摄像头）"""
-    print("\n╔" + "="*58 + "╗")
-    print("║" + " "*15 + "VNC摄像头视频显示 - 双摄像头模式" + " "*10 + "║")
-    print("╚" + "="*58 + "╝\n")
+    logger.info("\n╔" + "="*58 + "╗")
+    logger.info("║" + " "*15 + "VNC摄像头视频显示 - 双摄像头模式" + " "*10 + "║")
+    logger.info("╚" + "="*58 + "╝\n")
     
     viewer_multi = MultiCameraViewer()
     viewer_multi.add_camera(0, "Camera 0")
