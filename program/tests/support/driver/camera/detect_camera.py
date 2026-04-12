@@ -9,6 +9,10 @@ import subprocess
 import cv2
 import sys
 
+from program.src.support.logger import get_logger
+
+logger = get_logger(__name__)
+
 def check_usb_devices():
     """使用 lsusb 检查USB设备"""
     print("="*60)

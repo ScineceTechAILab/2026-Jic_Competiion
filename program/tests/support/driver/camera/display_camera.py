@@ -13,8 +13,12 @@ import threading
 from datetime import datetime
 import os
 
+from program.src.support.logger import get_logger
+
 
 os.environ["DISPLAY"] = ":1" # 设置DISPLAY环境变量以确保在无头VNC中显示
+
+logger = get_logger(__name__)
 
 class CameraViewer:
     def __init__(self, camera_index=0, window_name="Camera Stream"):
@@ -25,31 +29,65 @@ class CameraViewer:
         self.fps = 0
         self.frame_count = 0
         self.start_time = time.time()
+
+        # 优先目标: 1280x720@30(MJPG), 失败后自动降级
+        self.capture_profiles = [
+            ("MJPG", 1280, 720, 30),
+            ("MJPG", 1280, 720, 15),
+            ("MJPG", 640, 480, 30),
+            ("YUYV", 640, 480, 30),
+            ("YUYV", 1280, 720, 10),
+        ]
+
+    def _try_profile(self, profile):
+        fourcc_name, width, height, fps = profile
+
+        self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*fourcc_name))
+        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+        self.cap.set(cv2.CAP_PROP_FPS, fps)
+
+        actual_width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        actual_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        actual_fps = float(self.cap.get(cv2.CAP_PROP_FPS))
+
+        # 读取一帧确认当前配置可用
+        ok, _ = self.cap.read()
+        if not ok:
+            return None
+
+        return {
+            "fourcc": fourcc_name,
+            "width": actual_width,
+            "height": actual_height,
+            "fps": actual_fps,
+        }
         
     def initialize_camera(self):
         """初始化摄像头"""
         print(f"正在初始化摄像头 (设备索引: {self.camera_index})...")
         
-        self.cap = cv2.VideoCapture(self.camera_index)
+        self.cap = cv2.VideoCapture(self.camera_index, cv2.CAP_V4L2)
         
         if not self.cap.isOpened():
             print(f"✗ 无法打开摄像头 {self.camera_index}")
             return False
-        
-        # 设置分辨率
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 720)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1280)
-        self.cap.set(cv2.CAP_PROP_FPS, 30)
-        
-        # 获取实际参数
-        width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        fps = int(self.cap.get(cv2.CAP_PROP_FPS))
-        
-        print(f"✓ 摄像头初始化成功")
-        print(f"  分辨率: {width} x {height}")
-        print(f"  帧率: {fps} FPS")
-        
+
+        selected = None
+        for profile in self.capture_profiles:
+            selected = self._try_profile(profile)
+            if selected is not None:
+                break
+
+        if selected is None:
+            print("✗ 无法协商有效的视频流配置")
+            return False
+
+        print("✓ 摄像头初始化成功")
+        print(f"  编码: {selected['fourcc']}")
+        print(f"  分辨率: {selected['width']} x {selected['height']}")
+        print(f"  帧率: {selected['fps']:.1f} FPS")
+
         return True
     
     def add_info_text(self, frame):
@@ -144,7 +182,17 @@ class CameraViewer:
                         video_filename = f"camera_video_{timestamp}.avi"
                         
                         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-                        video_writer = cv2.VideoWriter(video_filename, fourcc, 30.0, (640, 480))
+                        record_width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                        record_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                        if record_width <= 0 or record_height <= 0:
+                            record_width, record_height = 640, 480
+
+                        video_writer = cv2.VideoWriter(
+                            video_filename,
+                            fourcc,
+                            30.0,
+                            (record_width, record_height),
+                        )
                         is_recording = True
                         print(f"\n▶ 开始录制: {video_filename}")
                     else:

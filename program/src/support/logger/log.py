@@ -17,7 +17,7 @@ def get_log_dir():
                 if config and 'log_dir' in config:
                     log_dir = config['log_dir']
         except Exception as e:
-            print(f"Failed to load log config: {e}")
+            logging.getLogger(__name__).warning(f"Failed to load log config: {e}")
     return log_dir
 
 # 日志目录

@@ -45,7 +45,7 @@ try:
     import program.tests.support.driver.chassis.left_motor as left_motor
     import program.tests.support.driver.chassis.right_motor as right_motor
 except ImportError as e:
-    print(f"Error importing motor scripts: {e}")
+    logger.error(f"Error importing motor scripts: {e}")
     sys.exit(1)
 
 
