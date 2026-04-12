@@ -239,7 +239,7 @@ float32 height
 | `base_link` | 底盘几何中心 |
 | `base_footprint` | 底盘投影到地面（Nav2 用） |
 | `laser_link` | RPLIDAR S1 安装位 |
-| `camera_link` | USB 摄像头安装位 |
+| `camera_link` | Orbbec Astra Pro 深度相机安装位 |
 | `camera_optical_link` | 摄像头光学坐标系（Z 朝前） |
 | `arm_base_link` | 机械臂基座 |
 | `arm_link_N` | 第 N 个关节 |

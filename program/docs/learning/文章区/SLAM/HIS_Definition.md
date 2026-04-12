@@ -229,7 +229,7 @@ H3 的目标不是“怎么写代码”，而是回答：
 ### 3) 结合你项目约束的判断（WHY）
 
 你当前约束非常明确：
-- 硬件：RPLIDAR S1 + 编码器 + BNO055 + USB相机
+- 硬件：RPLIDAR S1 + 编码器 + BNO055 + Orbbec Astra Pro 深度相机
 - 平台：RDK X5 + ROS2 Humble
 - 项目属性：本科毕设 + 里程碑交付（M0~M6）
 - 当前进度：驱动层已有基础，SLAM 尚未正式 ROS2 化
