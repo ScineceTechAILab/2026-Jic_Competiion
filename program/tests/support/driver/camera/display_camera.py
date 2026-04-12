@@ -37,8 +37,8 @@ class CameraViewer:
             return False
         
         # 设置分辨率
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 720)
+        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1280)
         self.cap.set(cv2.CAP_PROP_FPS, 30)
         
         # 获取实际参数
@@ -234,8 +234,8 @@ def main():
     parser = argparse.ArgumentParser(description="VNC摄像头视频显示工具")
     parser.add_argument('--camera', type=int, default=0, help='摄像头索引 (默认: 0)')
     parser.add_argument('--multi', action='store_true', help='多摄像头模式')
-    parser.add_argument('--width', type=int, default=640, help='视频宽度 (默认: 640)')
-    parser.add_argument('--height', type=int, default=480, help='视频高度 (默认: 480)')
+    parser.add_argument('--width', type=int, default=1280, help='视频宽度 (默认: 640)')
+    parser.add_argument('--height', type=int, default=720, help='视频高度 (默认: 480)')
     
     args = parser.parse_args()
     

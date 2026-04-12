@@ -5,7 +5,7 @@ import sys
 import yaml
 
 
-DEFAULT_LOG_DIR = "/app/jic_competiion/logs" # 默认日志目录
+DEFAULT_LOG_DIR = "/app/jic_competiion/log" # 默认日志目录
 CONFIG_PATH = "/app/jic_competiion/config/log_config.yaml"
 
 def get_log_dir():
